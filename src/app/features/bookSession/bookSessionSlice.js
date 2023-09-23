@@ -1,27 +1,49 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import bookSessionService from "./bookSessionService";
+import axios from "axios";
+import { baseUrl } from "../../../constants/base_urls";
 
-const book_session = {
-  _id: null,
+const initialState = {
   name: null,
   description: null,
   number: null,
   email: null,
-  subject: 0,
-  time_slot: null,
-}
-
-const initialState = {
-  book_session: book_session,
+  subject: '',
+  days: [],
+  closeDays: [],
   isError: false,
   isLoading: false,
+  isLoadingDays: false,
+  isDaysSuccess: false,
+  dayError: false,
+  isCloseDays: false,
+  isCloseDaysSuccess: false,
   isSuccess: false,
+  closeError: false,
   message: "",
 }
 
-export const createSession = createAsyncThunk("/create-book-session", async (data, thunkApi) =>{
+export const getDays = createAsyncThunk("days*session/fetch-days", async (data, thunkApi) =>{
   try {
-    return await bookSessionService.bookSession(data)
+    const response = await axios.get(`${baseUrl}book-session/days`)
+    return response.data
+  } catch (err) {
+    return thunkApi.rejectWithValue(err)
+  }
+});
+
+export const getCloseDays = createAsyncThunk("days*session/fetch-close-days", async (data, thunkApi) =>{
+  try {
+    const response = await axios.get(`${baseUrl}book-session/close-days`)
+    return response.data
+  } catch (err) {
+    return thunkApi.rejectWithValue(err)
+  }
+});
+
+export const createSession = createAsyncThunk("create-book-session", async (data, thunkApi) =>{
+  try {
+    const response = await axios.post(`${baseUrl}book-session`, {data: data})
+    return response.data
   } catch (err) {
     return thunkApi.rejectWithValue(err)
   }
@@ -47,6 +69,38 @@ export const  bookSlice = createSlice({
         state.isSuccess = false;
         state.book_session = null;
         state.message = 'Fetching book session error something went wrong.';
+      })
+      .addCase(getDays.pending, (state) => {
+        state.isLoadingDays = true
+      })
+      .addCase(getDays.fulfilled, (state, action) => {
+        state.isLoadingDays = false;
+        state.isDaysSuccess = true;
+        state.days = action.payload
+        console.log(action.payload.days)
+      })
+      .addCase(getDays.rejected, (state) => {
+        state.isLoadingDays = false;
+        state.dayError = true;
+        state.isDaysSuccess = false;
+        // state.book_session = null;
+        state.message = 'Fetching days error something went wrong.';
+      })
+      .addCase(getCloseDays.pending, (state) => {
+        state.isCloseDays = true
+      })
+      .addCase(getCloseDays.fulfilled, (state, action) => {
+        state.isCloseDays = false;
+        state.isCloseDaysSuccess = true;
+        state.closeDays = action.payload
+        console.log(action.payload.closeDays)
+      })
+      .addCase(getCloseDays.rejected, (state) => {
+        state.isCloseDays = false;
+        state.closeError = true;
+        state.isCloseDaysSuccess = false;
+        state.book_session = null;
+        state.message = 'Fetching days error something went wrong.';
       })
     }
 })

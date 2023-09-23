@@ -1,14 +1,20 @@
 import React from 'react'
 import { MdClose } from 'react-icons/md'
+import { toggleWorkModal } from '../../app/features/auth/authSlice'
+import { useDispatch } from 'react-redux'
 
-const WorkPopup = ({close}) => {
+const WorkPopup = () => {
+  const dispatch = useDispatch()
   return (
-    <div className='absolute flex z-20 w-full h-full items-center backdrop-blur-[67px] justify-center'>
+    <div className='absolute flex z-40 w-full h-full items-center backdrop-blur-[67px] justify-center'>
       <div className="relative bg-bg_alt pt-10 pb-4 w-[500px] rounded-lg">
-        <div onClick={() => close(false)} className="absolute top-4 right-4 cursor-pointer">
+        <div onClick={() => dispatch(toggleWorkModal())} className="absolute top-4 right-4 cursor-pointer">
           <MdClose size={20} />
         </div>
-        <p className='text-center text:2xl'>Create new project</p>
+        <p className='text-center font-bold text-3xl pb-4'>Customize your project</p>
+        <p className="text-center text-lighter text-md">Enter your project a with a name, description,<br /> link and an image.
+          You can always change it later
+        </p>
         <div className="flex flex-col gap-4 mb-3 w-full p-10">
             <div>
               <input
@@ -42,7 +48,7 @@ const WorkPopup = ({close}) => {
                 defaultValue={''}
               />
           </div>
-          <button className="rounded-md mt-4 text-[18px] py-2 px-4  bg-bg_cl text-white hover:bg-green duration-300">Save</button>
+          <button className="rounded-md mt-4 text-[18px] py-4 px-4  bg-bg_cl text-white hover:bg-green duration-300">Save</button>
         </div>
       </div>
     </div>

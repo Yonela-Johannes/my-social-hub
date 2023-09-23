@@ -11,6 +11,7 @@ import { lovePost } from "../app/features/post/postsSlice";
 import BlogListPopup from "../components/Blogs/bloglist/BlogListPopup";
 import { MdCreate } from "react-icons/md";
 import Layout from "../components/Layout/Layout";
+import { toggleBlogModal } from "../app/features/auth/authSlice";
 
 const columns = [
   {
@@ -86,23 +87,27 @@ const BlogsList = () => {
 
   return (
     <Layout>
-      <div className="flex flex-col items-center h-screen w-full pt-10">
-      {createBlogModal && (<BlogListPopup close={setCreateBlogModal} />)}
+      <div className="flex flex-col items-center h-[calc(100vh-200px)] w-full pt-10">
       <div className="flex items-center justify-between w-[1000px] mb-8 pr-8">
-        <h3 className="mb-4 title">Blogs</h3>
-        <div onClick={() => setCreateBlogModal(true)} className="bg-bg_light p-2 rounded-xl cursor-pointer">
+        <h3 className="text-center font-bold text-3xl pb-4">Blogs</h3>
+        <p className="text-center text-lighter text-md">Give your server a personality with a name and an image.<br />
+          You can always change it later
+        </p>
+        <div onClick={() => dispatch(toggleBlogModal())} className="bg-bg_light p-2 rounded-xl cursor-pointer">
             <MdCreate size={20} />
           </div>
       </div>
-        <div className="w-[1000px]">
-          <Table
-            columns={columns}
-            dataSource={data}
-            bordered
-            title={() => 'Blogs'}
-            className="bg-red rounded-md"
-          />
-        </div>
+        {blogs?.length > 0 && (
+          <div className="w-[1000px]">
+            <Table
+              columns={columns}
+              dataSource={data}
+              bordered
+              title={() => 'Blogs'}
+              className="bg-red rounded-md"
+            />
+          </div>
+        )}
       </div>
     </Layout>
   );

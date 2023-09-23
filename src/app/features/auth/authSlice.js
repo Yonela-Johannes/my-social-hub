@@ -19,6 +19,7 @@ export const user = {
   status: "",
 };
 
+
 const initialState = {
   _id: "",
   name: '',
@@ -36,6 +37,20 @@ const initialState = {
   status: "",
   menuState: false,
   showAdmin: false,
+  serverPopup: false,
+  postModal: false,
+  blogModal: false,
+  workModal: false,
+  devModal: false,
+  videoModal: false,
+  bookSessionModal: false,
+  emailUsModal: false,
+  aboutUsModal: false,
+  ourWorkModal: false,
+  ourTeamModal: false,
+  contactUsModal: false,
+  ourReviews: false,
+
 };
 
 export const signIn = createAsyncThunk("user/getUser", async (user) => {
@@ -57,8 +72,51 @@ const userSlice = createSlice({
     },
     toggleShowAdmin(state) {
       state.showAdmin = !state.showAdmin
-    }
+    },
+    toggleServer(state) {
+      state.serverPopup = !state.serverPopup
+    },
+    togglePostModal(state) {
+      state.postModal = !state.postModal
+    },
+    toggleBlogModal(state) {
+      state.blogModal = !state.blogModal
+    },
+    toggleWorkModal(state) {
+      state.workModal = !state.workModal
+    },
+    toggleDevModal(state) {
+      state.devModal = !state.devModal
+    },
+    toggleVideoModal(state) {
+      state.videoModal = !state.videoModal
+    },
+    toggleBookSessionModal(state) {
+      state.bookSessionModal = !state.bookSessionModal
+    },
+    toggleSearchUserModal(state) {
+      state.searchUserModal = !state.searchUserModal
+    },
+    emailModal(state) {
+      state.emailUsModal = !state.emailUsModal
+    },
+    aboutModal(state) {
+      state.aboutUsModal = !state.aboutUsModal
+    },
+    workModal(state) {
+      state.ourWorkModal = !state.ourWorkModal
+    },
+    teamModal(state) {
+      state.ourTeamModal = !state.ourTeamModal
+    },
+    contactModal(state) {
+      state.contactUsModal = !state.contactUsModal
+    },
+    reviewsModal(state) {
+      state.ourReviews = !state.ourReviews
+    },
   },
+
   extraReducers: (builder) => {
     builder
       .addCase(signIn.pending, (state, action) => {
@@ -86,5 +144,23 @@ const userSlice = createSlice({
       });
   }
 });
-export const { toggleMenu, toggleShowAdmin } = userSlice.actions;
+
+export const {
+  toggleMenu,
+  toggleShowAdmin,
+  toggleServer,
+  togglePostModal,
+  toggleBlogModal,
+  toggleWorkModal,
+  toggleDevModal,
+  toggleVideoModal,
+  toggleBookSessionModal,
+  toggleSearchUserModal,
+  emailModal,
+  aboutModal,
+  workModal,
+  teamModal,
+  reviewsModal,
+  contactModal
+} = userSlice.actions;
 export default userSlice.reducer;

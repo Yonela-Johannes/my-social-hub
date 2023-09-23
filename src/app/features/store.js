@@ -7,6 +7,7 @@ import bookSessionReducer from './bookSession/bookSessionSlice'
 import contactSlice from './contact/contactSlice';
 import postsSlice from './post/postsSlice';
 import blogsSlice from './blogs/blogsSlice';
+import serverSlice from './server/serverSlice'
 
 const persistConfig = {
   key: 'root',
@@ -21,6 +22,7 @@ const rootReducer = {
   contact: contactSlice,
   post: postsSlice,
   blogs: blogsSlice,
+  servers: serverSlice,
 }
 
 

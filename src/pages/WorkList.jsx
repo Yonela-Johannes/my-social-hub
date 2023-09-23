@@ -10,6 +10,7 @@ import parse from 'html-react-parser';
 import { MdCreate } from "react-icons/md";
 import WorkPopup from "../components/Work/WorkPopup";
 import Layout from "../components/Layout/Layout";
+import { toggleWorkModal } from "../app/features/auth/authSlice";
 
 const columns = [
   {
@@ -61,7 +62,7 @@ const WorkList = () => {
   }, [pathname]);
 
   const data = [];
-  for (let i = 0; i < blogs.length; i++) {
+  for (let i = 0; i < blogs?.length; i++) {
     data.push({
       key: i + 1,
       title: blogs[i].title,
@@ -85,22 +86,26 @@ const WorkList = () => {
 
   return (
     <Layout>
-      <div className="relative flex flex-col items-center h-screen w-full pt-10">
-        {createProjectModal && (<WorkPopup close={setCreateProjectModal} />)}
+      <div className="relative flex flex-col items-center h-[calc(100vh-200px)] w-full pt-10">
         <div className="flex items-center justify-between w-[1000px] mb-8 pr-8">
-          <h3 className="mb-4 title">Work</h3>
-          <div onClick={() => setCreateProjectModal(true)} className="bg-bg_light p-2 rounded-xl cursor-pointer">
+          <h3 className="text-center font-bold text-3xl pb-4">Projects</h3>
+          <p className="text-center text-lighter text-md">Give your server a personality with a name and an image.<br />
+          You can always change it later
+        </p>
+          <div onClick={() => dispatch(toggleWorkModal())} className="bg-bg_light p-2 rounded-xl cursor-pointer">
             <MdCreate size={20} />
           </div>
         </div>
         <div className="w-[1000px]">
-          <Table
-            columns={columns}
-            dataSource={data}
-            bordered
-            title={() => 'Work'}
-            className="bg-red rounded-md"
-          />
+          {blogs?.length > 0 && (
+            <Table
+              columns={columns}
+              dataSource={data}
+              bordered
+              title={() => 'Work'}
+              className="bg-red rounded-md"
+            />
+          )}
         </div>
       </div>
     </Layout>
