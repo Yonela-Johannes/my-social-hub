@@ -2,12 +2,17 @@ import React, {useState, useEffect } from 'react'
 import parse from 'html-react-parser';
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
+import { blogDetailsToggle } from "../../app/features/auth/authSlice";
 import { AiFillHeart } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
 
 const Blog = ({blog}) => {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const blogId = blog?._id
 
   return (
-    <div className="relative bg-bg_alt w-[340px] h-[330px] md:w-[320px] rounded-xl cursor-pointer py-4 my-[20px]">
+    <div onClick={() => dispatch(blogDetailsToggle(blogId))} className="relative bg-bg_alt w-[340px] h-[330px] md:w-[320px] rounded-xl cursor-pointer py-4 my-[20px]">
       <div className="absolute top-0 right-1 flex justify-between items-center text-center text-base text-bg_cl py-4">
         <div className="flex gap-1 text-center items-center justify-center">
           <div className='flex'>

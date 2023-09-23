@@ -24,6 +24,8 @@ import Opening from './pages/Opening';
 import Team from './components/Service/Team';
 import Contact from './components/Contact/Contact';
 import Reviews from './components/Client/Reviews';
+import BlogModal from './pages/BlogModal';
+import BlogDetails from './components/Blogs/BlogDetails';
 
 const App = () => {
   const {
@@ -38,11 +40,15 @@ const App = () => {
     ourWorkModal,
     ourTeamModal,
     contactUsModal,
-    ourReviews
+    ourReviews,
+    blog,
+    blogDetails,
+    selectedBlog
   } = useSelector(state => state.auth);
   const location = useLocation()
   const { pathname } = location;
   const [activeNav, setActiveNav] = useState(false);
+  console.log(blogDetails)
 
   return (
   <div className="relative flex-1 flex flex-col text-text bg-bg_cl align-center justify-center font-sans">
@@ -60,7 +66,7 @@ const App = () => {
             </div>
           </>
         )}
-          <div className={`w-full h-[calc(100vh)] ${pathname == '/' || pathname == '/signin' || pathname == '/signup'? "overflow-hidden" : "overflow-y-scroll"
+          <div className={`w-full h-[calc(100vh)] ${pathname == '/dsfs' || pathname == '/signin' || pathname == '/signup'? "overflow-hidden" : "overflow-y-scroll"
           } flex xl:flex-row flex-reverse`} >
             <div className="flex-1">
               <Routes>
@@ -95,6 +101,8 @@ const App = () => {
     {ourReviews && (<Reviews />)}
     {ourTeamModal && (<Team />)}
     {contactUsModal && (<Contact />)}
+    {blog && (<BlogModal />)}
+    {blogDetails && (<BlogDetails />)}
 </div>
   )
 }
