@@ -50,7 +50,9 @@ const initialState = {
   ourTeamModal: false,
   contactUsModal: false,
   ourReviews: false,
-
+  blog: false,
+  blogDetails: false,
+  selectedBlog: ''
 };
 
 export const signIn = createAsyncThunk("user/getUser", async (user) => {
@@ -115,6 +117,13 @@ const userSlice = createSlice({
     reviewsModal(state) {
       state.ourReviews = !state.ourReviews
     },
+    blogModal(state) {
+      state.blog = !state.blog
+    },
+    blogDetailsToggle(state, payload) {
+      state.selectedBlog = payload.payload
+      state.blogDetails = !state.blogDetails
+    },
   },
 
   extraReducers: (builder) => {
@@ -161,6 +170,8 @@ export const {
   workModal,
   teamModal,
   reviewsModal,
-  contactModal
+  contactModal,
+  blogModal,
+  blogDetailsToggle,
 } = userSlice.actions;
 export default userSlice.reducer;

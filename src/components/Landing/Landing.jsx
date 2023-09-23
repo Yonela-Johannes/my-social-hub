@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import landing from '../../assets/okuhlelanding.png';
 import { createSession } from '../../app/features/bookSession/bookSessionSlice';
 import { useDispatch } from 'react-redux';
-import { aboutModal, contactModal, emailModal, reviewsModal, teamModal, toggleBookSessionModal, workModal } from '../../app/features/auth/authSlice';
+import { aboutModal, blogModal, contactModal, reviewsModal, teamModal, toggleBookSessionModal, workModal } from '../../app/features/auth/authSlice';
 import Service from '../Service/Service';
 
 const Landing = () => {
@@ -39,7 +39,8 @@ const Landing = () => {
               <button onClick={() => dispatch(toggleBookSessionModal())} className="rounded-md text-[18px] py-2 px-4  bg-bg_cl text-green font-semibold hover:text-bg_cl hover:font-bold hover:bg-green duration-300">Book A Meeting</button>
               <button onClick={() => dispatch(aboutModal())} className="rounded-md text-[18px] py-2 px-4  bg-bg_cl text-green font-semibold hover:text-bg_cl hover:font-bold hover:bg-green duration-300">About Us</button>
               <button onClick={() => dispatch(workModal())} className="rounded-md text-[18px] py-2 px-4  bg-bg_cl text-green font-semibold hover:text-bg_cl hover:font-bold hover:bg-green duration-300">Our Work</button>
-              <button onClick={() => dispatch(teamModal())} className="rounded-md text-[18px] py-2 px-4  bg-bg_cl text-green font-semibold hover:text-bg_cl hover:font-bold hover:bg-green duration-300">Our Team</button>
+              <button onClick={() => dispatch(blogModal())} className="rounded-md text-[18px] py-2 px-4  bg-bg_cl text-green font-semibold hover:text-bg_cl hover:font-bold hover:bg-green duration-300">Blogs</button>
+              <button onClick={() => dispatch(teamModal())} className="rounded-md text-[18px] py-2 px-4  bg-bg_cl text-green font-semibold hover:text-bg_cl hover:font-bold hover:bg-green duration-300">Team</button>
               <button onClick={() => dispatch(reviewsModal())} className="rounded-md text-[18px] py-2 px-4  bg-bg_cl text-green font-semibold hover:text-bg_cl hover:font-bold hover:bg-green duration-300">Feedback</button>
               <button onClick={() => dispatch(contactModal())} className="rounded-md text-[18px] py-2 px-4  bg-bg_cl text-green font-semibold hover:text-bg_cl hover:font-bold hover:bg-green duration-300">Contact Us</button>
             </div>
@@ -50,7 +51,6 @@ const Landing = () => {
           <img className="md:object-cover object-contain w-[300px] h-[200px] md:h-[600px] md:w-[600px]" src={landing} alt="landing" />
         </div>
       </div>
-
     </div>
   )
 }
