@@ -4,12 +4,12 @@ import { BiEdit } from "react-icons/bi";
 import { AiFillDelete } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import parse from 'html-react-parser';
 import { getPosts } from "../app/features/post/postsSlice";
-import { MdCreate } from "react-icons/md";
-import PostListPopup from "../components/Posts/postlist/PostListPopup";
+import { MdAdd, MdCreate } from "react-icons/md";
 import Layout from "../components/Layout/Layout";
+import { togglePostModal } from "../app/features/auth/authSlice";
 
 const columns = [
   {
@@ -41,7 +41,6 @@ const columns = [
 ];
 
 const PostsList = () => {
-  const [createPostModal, setCreatePostModal] = useState(false);
   const dispatch = useDispatch();
   const { posts } = useSelector((state) => state.post);
   const location = useLocation();
@@ -52,7 +51,7 @@ const PostsList = () => {
   }, [pathname]);
 
   const data = [];
-  for (let i = 0; i < posts.length; i++) {
+  for (let i = 0; i < posts?.length; i++) {
     data.push({
       key: i + 1,
       post: posts[i].post ? parse(posts[i].post) : '',
@@ -74,23 +73,25 @@ const PostsList = () => {
 
   return (
     <Layout>
-      <div className="flex flex-col items-center h-screen w-full pt-10">
-        {createPostModal && (<PostListPopup close={setCreatePostModal} />)}
+      <div className="flex flex-col items-center h-[calc(100vh-200px)] w-full pt-10">
         <div className="flex items-center justify-between w-[1000px] mb-8 pr-8">
-          <h3 className="mb-4 title">Posts</h3>
-          <div onClick={() => setCreatePostModal(true)} className="bg-bg_light p-2 rounded-xl cursor-pointer">
+          <h3 className="text-center font-bold text-3xl pb-4">Posts</h3>
+          <p className="text-center text-lighter text-md">Bring Your Ideas to Life - Write Your Next Post Today!</p>
+          <div onClick={() => dispatch(togglePostModal())} className="bg-bg_light p-2 rounded-xl cursor-pointer">
             <MdCreate size={20} />
           </div>
         </div>
-        <div className="w-[1000px]">
-          <Table
-            columns={columns}
-            dataSource={data}
-            bordered
-            title={() => 'Posts'}
-            className="bg-red rounded-md"
-          />
-        </div>
+        {posts?.length > 0 && (
+          <div className="w-[1000px]">
+            <Table
+              columns={columns}
+              dataSource={data}
+              bordered
+              title={() => 'Posts'}
+              className="bg-red rounded-md"
+            />
+          </div>
+        )}
       </div>
     </Layout>
   );

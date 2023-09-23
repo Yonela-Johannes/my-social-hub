@@ -7,6 +7,7 @@ import parse from 'html-react-parser';
 import { createPost } from "../../../app/features/post/postsSlice";
 import { createBlog } from "../../../app/features/blogs/blogsSlice";
 import SunEditor, { buttonList } from "suneditor-react";
+import { toggleBlogModal } from "../../../app/features/auth/authSlice";
 
 const BlogListPopup = ({close}) => {
   const [messageData, setMessageData] = useState('');
@@ -45,17 +46,19 @@ const BlogListPopup = ({close}) => {
       dispatch(createPost({ ...inputData, userId: _id}))
     }
     setInputData({});
-    close(false)
+    dispatch(toggleBlogModal())
   }
 
 
   return (
-    <div className='absolute flex z-20 w-full h-full items-center backdrop-blur-[67px] justify-center'>
+    <div className='absolute flex z-40 w-full h-full items-center backdrop-blur-[67px] justify-center'>
       <div className="relative bg-bg_alt pt-10 pb-4 w-[1000px] rounded-lg">
-        <div onClick={() => close(false)} className="absolute top-4 right-4 cursor-pointer">
+        <div onClick={() => dispatch(toggleBlogModal())} className="absolute top-4 right-4 cursor-pointer">
           <MdClose size={20} />
         </div>
-        <p className='text-center text:2xl'>Create new blog</p>
+        <p className='text-center font-bold text-3xl pb-4'>Customize you new blog</p>
+        <p className="text-center text-lighter text-md">Customize your blog's unique personality and message.<br /> And remember, you can always update it as your blog evolves
+        </p>
         <div className="flex flex-col gap-4 mb-3 w-full p-10">
           <div className="md:grid grid-cols-2 gap-2 p-4">
               <div>
