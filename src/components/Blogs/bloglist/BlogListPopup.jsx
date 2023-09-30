@@ -8,6 +8,7 @@ import { createPost } from "../../../app/features/post/postsSlice";
 import { createBlog } from "../../../app/features/blogs/blogsSlice";
 import SunEditor, { buttonList } from "suneditor-react";
 import { toggleBlogModal } from "../../../app/features/auth/authSlice";
+import Write from "../../../pages/blog/write/Write";
 
 const BlogListPopup = ({close}) => {
   const [messageData, setMessageData] = useState('');
@@ -59,39 +60,7 @@ const BlogListPopup = ({close}) => {
         <p className='text-center font-bold text-3xl pb-4'>Customize you new blog</p>
         <p className="text-center text-lighter text-md">Customize your blog's unique personality and message.<br /> And remember, you can always update it as your blog evolves
         </p>
-        <div className="flex flex-col gap-4 mb-3 w-full p-10">
-          <div className="md:grid grid-cols-2 gap-2 p-4">
-              <div>
-                <div className="flex flex-col">
-                  <input name="title" onChange={(e) => setInputData({...inputData, title: e.target.value})} placeholder='title...' className='flex flex-1 h-8 text-bg_alt text-[14px] rounded-none bg-white p-4 w-full' />
-                </div>
-                  <SunEditor
-                  height="200"
-                    placeholder="Please type here..."
-                    onChange={(content) => setMessageData(content)} //set to message data because it clears the previous input of the input data (inputData)
-                  />
-                  <div className="flex flex-col w-full gap-2 mt-4">
-                    <button className='flex items-center py-4 justify-center rounded-none bg-bg_light hover:bg-bg_cl gap-2 text-[14px]' onClick={handleSubmit}>Create blog</button>
-                  </div>
-              </div>
-              <div>
-                {imageSrc ? (
-                    <div className="h-full] py-4">
-                      <input className='absolute bg-transparent cursor-pointer text-transparent' type="file" onChange={uploadImage} name="image" />
-                      <img src={imageSrc} alt="profile" className='w-full h-[360px] rounded-md object-contain' />
-                    </div>
-                    ) :
-                    (<div className="relative flex items-center text-base gap-2 bg-bg_cl rounded-full">
-                      <div className="flex items-center justify-center w-12 h-12 cursor-pointer bg-bg_light rounded-full ">
-                        <AiOutlineCloudUpload size={22} />
-                      </div>
-                      <p className='mr-4'>Cover image</p>
-                      <input className='absolute bg-transparent cursor-pointer text-transparent' type="file" onChange={uploadImage} name="image" />
-                    </div>)
-                    }
-              </div>
-            </div>
-        </div>
+        <Write />
       </div>
     </div>
   )

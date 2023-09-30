@@ -1,57 +1,94 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import youth from '../../assets/services/youth.jpg';
-import rapper from '../../assets/services/rapper.jpeg';
-import writer from '../../assets/services/writer.jpg';
-import artist from '../../assets/services/artist.webp';
-import business from '../../assets/services/business.jpg';
-import developer from '../../assets/services/developer.jpeg';
-import photographer from '../../assets/services/photographer.jpg';
-import blogger from '../../assets/services/bloger.jpg';
+import next from '../../assets/next.png';
+import react from '../../assets/react.webp';
+import vite from '../../assets/vite.png';
+import tailwind from '../../assets/tailwind.png';
+import javascript from '../../assets/javascript.webp';
+import typescript from '../../assets/typescript.jpg';
+import nodejs from '../../assets/nodejs.jpg';
+import rails from '../../assets/rails.webp';
+import mongodb from '../../assets/mongodb.png';
+import postgresql from '../../assets/postgresql.png';
+
+
 import Marquee from "react-fast-marquee";
 
 
 function Service() {
   const navigate = useNavigate();
   const popularServicesData = [
-    { name: "Writers & Readers", label: "Read success stories", image: writer },
-    { name: "Artist", label: "Display your art", image: artist },
-    { name: "Entrepreneurs", label: "Grow your business", image: business },
+    { name: "Vite", image: vite },
+    { name: "React", image: react },
+    { name: "NextJs", image: next },
+    { name: "TailwindCss", image: tailwind},
+    { name: "JavaScript", image: javascript},
+    { name: "Typescript", image: typescript},
+    { name: "NodeJs", image: nodejs },
+    { name: "Ruby on Rails", image: rails },
+    { name: "MongoDb", image: mongodb },
+    { name: "PostgreSql",image: postgresql},
+  ];
+
+  const servicesData = [
+    { name: "Writers & Readers", label: "Read success stories", image: vite },
+    { name: "Artist", label: "Display your art", image: react },
+    { name: "Entrepreneurs", label: "Grow your business", image: next },
     {
       name: "Programmers",
       label: "Make connections through projects",
-      image: developer,
+      image: tailwind,
     },
-    { name: "Influencers", label: "Share your story", image: blogger },
+    {
+      name: "Programmers",
+      label: "Make connections through projects",
+      image: javascript,
+    },
+    {
+      name: "Programmers",
+      label: "Make connections through projects",
+      image: typescript,
+    },
+    { name: "Influencers", label: "Share your story", image: nodejs },
     {
       name: "Nomi",
       label: "We share our ideas",
-      image: youth,
+      image: rails,
+    },
+    {
+      name: "Nomi",
+      label: "We share our ideas",
+      image: mongodb,
+    },
+    {
+      name: "Nomi",
+      label: "We share our ideas",
+      image: postgresql,
     },
   ];
   return (
     <div className="flex flex-col items-center justify-center w-[90%] lg:w-full pt-5 bg-bg_alt">
-      <ul className="grid grid-cols-1 items-center justify-center">
+      <div className="grid grid-cols-1 items-center justify-center">
         <Marquee
           direction="left"
         >
           {popularServicesData.map(({ name, label, image }) => {
             return (
-              <li
+              <div
                 key={name}
-                className="relative cursor-pointer mx-8 h-min">
+                className="relative cursor-pointer mx-4 h-min">
                 <div className="absolute z-10 drop-shadow-md shadow-black px-2 rounded-md bg-opacity-[.2] text-black top-1 left-1 bg-white">
                   <p className="drop-shadow-md shadow-black text-[14px] sm:text-base">{label}</p>
-                  <h6 className="font-extrabold drop-shadow-sm text-[18px] md:text-2xl shadow-black">{name}</h6>
+                  <h6 className="font-extrabold drop-shadow-sm text-[16px] shadow-black">{name}</h6>
                 </div>
                 <div className="w-[160px] lg:h-80 md:w-72">
-                  <img src={image} className='w-[160px] md:w-72 h-50 object-cover rounded-md' alt="service" />
+                  <img src={image} className='w-[160px] h-[180px] md:w-72 h-50 object-cover rounded-md' alt="service" />
                 </div>
-              </li>
+              </div>
             );
           })}
         </Marquee>
-      </ul>
+      </div>
     </div>
   );
 }

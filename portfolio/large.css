@@ -1,0 +1,21 @@
+@media screen and (min-width: 900px){
+    .subtitle{
+        font-size: 20px;
+    }
+    .about-me-text{
+        font-size: 18px;
+        color: var(--p-cl-s);
+        margin: 0;
+        padding: 10px 0;
+    }
+    .head-text{
+        font-size: 25px;
+    }
+    .tech-item-title{
+        font-size: 25px;
+        font-weight: bold;
+    }
+    .tech-list-par{
+        font-size: 17px;
+    }
+}
