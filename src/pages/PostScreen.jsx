@@ -8,8 +8,9 @@ import { MdAdd } from 'react-icons/md';
 import { toggleBlogModal } from '../app/features/auth/authSlice';
 import Featured from './blog/featured/Featured';
 import Footer from './blog/footer/Footer';
+import Post from '../components/Posts/Post';
 
-const BlogScreen = () => {
+const PostScreen = () => {
   const { given_name, family_name, email, isAdmin } = useSelector(state => state.auth)
   const { blogs } = useSelector(state => state.blogs)
   const navigate = useNavigate()
@@ -37,8 +38,8 @@ const BlogScreen = () => {
       <div className="px-2">
         <Featured />
       </div>
-      <div className='flex flex-wrap text-center justify-center items-center gap-10 w-full mt-20'>
-        {blogs?.length > 0 ? blogs?.map((blog) => <Blog blog={blog} key={blog._id}/>) : (<p className='text-base w-full'>No Blogs...</p>)}
+      <div className='flex flex-col flex-wrap text-center justify-center items-center gap-10 w-full mt-20'>
+        {blogs?.length > 0 ? blogs?.map((blog) => <Post blog={blog} key={blog._id}/>) : (<p className='text-base w-full'>No Blogs...</p>)}
       </div>
       <div className="mb-12 md:mb-20">
         <Footer />
@@ -46,4 +47,4 @@ const BlogScreen = () => {
     </Layout>
   )
 }
-export default BlogScreen;
+export default PostScreen;
