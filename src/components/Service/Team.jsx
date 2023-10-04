@@ -34,7 +34,7 @@ function Team() {
           My Journey: From Struggles to<br /> Success
           </h2>
           <p className='text-base md:text-lg md:text-center mb-5 text-lighter'>Navigating Life's Challenges, Embracing Growth,<br /> and Shaping a Brighter Future</p>
-          <ul className="flex flex-wrap md:mb-0 gap-8 lg:gap-16 items-center justify-center">
+          <div className="flex flex-wrap md:mb-0 gap-8 lg:gap-16 items-center justify-center mb-8">
             {popularServicesData.map(({ name, label, image, quote, message }) => {
               return (
                 <div
@@ -44,18 +44,18 @@ function Team() {
                   <div className="flex gap-4 p-2 w-[100%]">
                     <img src={image} className='w-[100px] h-[100px] object-cover rounded-full' alt="service" />
                     <div>
-                    <p className="w-full text-[14px] text-white font-bold pt-2">{quote}</p>
+                    <p className="w-full text-[13px] md:text-[14px] text-white font-bold pt-2">{quote}</p>
                     </div>
                   </div>
-                  <p className="w-full text-[16px] text-white px-10">"{message}"</p>
-                  <div className="drop-shadow-md shadow-black py-2 rounded-md text-white top-0 left-1 h-[100px] px-10">
-                    <h6 className="drop-shadow-sm pt-2 text-[16px] md:text-2xl shadow-black">{name}</h6>
-                    <p className="drop-shadow-md shadow-black text-base font-semibold text-lighter text-[17px] sm:text-[15px]">{label}</p>
+                  <p className="w-full text-[13px] md:text-[16px] text-white px-2 md:px-10">"{message}"</p>
+                  <div className="drop-shadow-md shadow-black py-2 rounded-md text-white top-0 left-1 px-2 pb-4 md:px-10">
+                    <h6 className="drop-shadow-sm pt-2 text-[12px] md:text-2xl shadow-black">{name}</h6>
+                    <p className="drop-shadow-md shadow-black  md:font-semibold text-lighter text-[13px] md:text-[17px]">{label}</p>
                   </div>
                 </div>
               );
             })}
-          </ul>
+          </div>
       </div>
     </div>
   );

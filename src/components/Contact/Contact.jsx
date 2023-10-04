@@ -5,9 +5,9 @@ import toast, { Toaster } from 'react-hot-toast';
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { contactModal } from "../../app/features/auth/authSlice";
-import { AiFillLinkedin, AiOutlineLinkedin } from "react-icons/ai";
+import { AiFillLinkedin } from "react-icons/ai";
 import { createContact } from "../../app/features/contact/contactService";
-import { FallingLines, Watch } from  'react-loader-spinner'
+import { FallingLines } from  'react-loader-spinner'
 
 function Contact() {
   const dispatch = useDispatch();
@@ -57,7 +57,7 @@ function Contact() {
           ariaLabel='falling-lines-loading'
         />
         ): (
-        <div className="flex flex-col items-center relative bg-bg_alt rounded-md pt-10 w-full p-5 lg:w-[700px] overflow-y-scroll sm:overflow-hidden mb-10">
+        <div className="flex flex-col items-center relative bg-bg_alt rounded-md pt-10 w-full px-2 lg:w-[700px] overflow-y-scroll sm:overflow-hidden mb-10">
         <div
             onClick={() => dispatch(contactModal())}
             className="absolute top-4 right-4 cursor-pointer"
@@ -75,7 +75,7 @@ function Contact() {
                     <a href={contact.reach} key={contact?.title} target="_blank" className="flex text-center items-center text-lighter rounded-md w-[150px-bg_alt cu:bg-bg_ligh">
                   {contact.icon}
                       <div className="">
-                        <p className="">{contact?.title}</p>
+                        <p className="hidden md:block">{contact?.title}</p>
                       </div>
                     </a>
                   ))}

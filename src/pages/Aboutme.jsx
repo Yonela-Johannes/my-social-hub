@@ -41,7 +41,7 @@ function Aboutme() {
               return (
                 <div
                   key={name}
-                  className="cursor-pointer p-5 flex flex-col md:w-[850px] bg-bg_light lg:mx-5 gap-2 rounded-2xl mb-10"
+                  className="cursor-pointer md:p-5 flex flex-col md:w-[850px] bg-bg_light lg:mx-5 gap-2 rounded-2xl mb-10"
                 >
                   <div className="flex flex-col md:flex-row gap-4 p-2 w-[100%]">
                     <div className="flex item-center round-xl md:w-[2000px] cursor-pointer h-[500px]">

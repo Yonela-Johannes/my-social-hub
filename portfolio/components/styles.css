@@ -1,6 +1,6 @@
 .static-navbar{
     position: static;
-    width: 380px;
+    width: 300px;
     top: 0;
     transition: .2s ease;
     z-index: 20;
@@ -12,12 +12,11 @@
 .scroll-navbar{
   margin: 0 auto;
   position: static;
-  width: 380px;
+  width: 300px;
   top: 0;
   z-index: 20;
   transition: .2s ease-in;
-  padding: 5px 10px;
-  background-color: var(--p-bg);
+  padding: 5px ;
 }
 
 .nav-wrapper{

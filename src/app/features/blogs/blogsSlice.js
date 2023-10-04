@@ -66,7 +66,16 @@ export const updateBlog = createAsyncThunk("blogs/fetch-blogs",async (data) => {
 
 export const loveBlog = createAsyncThunk("blogs/love-blogs", async (ids) => {
   try {
-    const { data } = await axios.patch(`${url}/blogs/love`, ids);
+    const { data } = await axios.patch(`${url}/blogs/love`, {ids: ids});
+    return await data
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+export const viewBlog = createAsyncThunk("blogs/view-blog", async (id) => {
+  try {
+    const { data } = await axios.patch(`${url}/blogs/view/${id}`);
     return await data
   } catch (error) {
     console.log(error);

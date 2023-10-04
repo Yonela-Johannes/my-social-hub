@@ -1,37 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-import {
-  FiGithub,
-  FiInstagram,
-  FiYoutube,
-  FiLinkedin,
-  FiTwitter,
-} from "react-icons/fi";
+import { AiFillFacebook, AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 
 const Footer = () => {
 
   const socialLinks = [
-    { name: "Github", icon: <FiGithub />, link: "https://www.github.com" },
-    {
-      name: "Youtube",
-      icon: <FiYoutube />,
-      link: "https://www.youtube.com/KishanSheth21/",
-    },
+    { name: "Github", icon: <AiFillGithub />, link: "https://github.com/Yonela-Johannes" },
     {
       name: "LinkedIn",
-      icon: <FiLinkedin />,
-      link: "https://www.linkedin.com/in/koolkishan/",
+      icon: <AiFillLinkedin />,
+      link: "https://www.linkedin.com/in/yonela-johannes/",
+    },
+    {
+      name: "Facebook",
+      icon: <AiFillFacebook />,
+      link: "https://www.facebook.com/JohannesYonela",
     },
     {
       name: "Instagram",
-      icon: <FiInstagram />,
-      link: "https://instagram.com/koolkishansheth",
-    },
-    {
-      name: "Twitter",
-      icon: <FiTwitter />,
-      link: "https://twitter.com/koolkishansheth",
+      icon: <AiFillInstagram />,
+      link: "https://www.instagram.com/yonelajohannes/",
     },
   ];
 
@@ -44,7 +32,7 @@ const Footer = () => {
                 {socialLinks.map(({ icon, link, name }) => (
                   <li
                     key={name}
-                    className="text-[26px] p-1 text-bg_light hover:text-white hover:bg-green rounded-full transition-all duration-300"
+                    className="text-[28px] p-1 text-bg_light hover:text-white hover:bg-green rounded-full transition-all duration-300"
                   >
                     <Link href={link}>{icon}</Link>
                   </li>

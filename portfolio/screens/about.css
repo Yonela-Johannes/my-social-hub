@@ -134,9 +134,9 @@ img.barcode{
   }
 
   .about{
-    padding: 2rem 10px;
+    padding: 2rem 0px;
     margin: 0 auto;
-    width: 380px;
+    width: 370px;
   }
 
   .about_more_button{
