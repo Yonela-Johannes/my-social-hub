@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { AiFillFacebook, AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
+import Share from "./share/Share";
 
 const Footer = () => {
 
@@ -24,20 +25,22 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full pb-1 lh:mb-10">
-      <div className="flex flex-col w-full">
-          <div className="w-full lg:py-5">
-            <div className="mt-8 flex items-center text-center justify-center">
-              <ul className="flex gap-5">
+    <footer className="w-full pb-10">
+      <div className="flex items-center gap-20 justify-center flex-col w-full">
+          <div className="flex items-center justify-evenly w-full lg:py-5">
+            <div className="mt-8 flex items-center gap-20 text-center justify-center">
+              <ul className="flex items-center gap-5 h-min bg-primary py-3 px-2 rounded-full w-min">
+              <p className="text-[16px]">Follow:</p>
                 {socialLinks.map(({ icon, link, name }) => (
                   <li
                     key={name}
-                    className="text-[28px] p-1 text-bg_light hover:text-white hover:bg-green rounded-full transition-all duration-300"
+                    className="cursor-pointer bg-secondary border border-lighter text-white rounded-full p-2 hover:bg-green duration-300"
                   >
                     <Link href={link}>{icon}</Link>
                   </li>
                 ))}
               </ul>
+            <Share />
             </div>
         </div>
       </div>

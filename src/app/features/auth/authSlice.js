@@ -47,6 +47,8 @@ const initialState = {
   blog: false,
   blogDetails: false,
   selectedBlog: '',
+  postDetails: false,
+  selectedPost: '',
   portfolioModal: false,
 };
 
@@ -118,6 +120,10 @@ const userSlice = createSlice({
       state.selectedBlog = payload.payload
       state.blogDetails = !state.blogDetails
     },
+    postDetailsToggle(state, payload) {
+      state.selectedPost = payload.payload
+      state.postDetails = !state.postDetails
+    },
     portfolioToggle(state) {
       state.portfolioModal = !state.portfolioModal
     },
@@ -170,6 +176,7 @@ export const {
   contactModal,
   blogModal,
   blogDetailsToggle,
+  postDetailsToggle,
   portfolioToggle
 } = userSlice.actions;
 export default userSlice.reducer;

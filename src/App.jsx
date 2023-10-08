@@ -10,8 +10,11 @@ import BlogDetails from "./components/Blogs/BlogDetails";
 import { useSelector } from "react-redux";
 import PortfolioScreen from "./pages/PortfolioScreen";
 import Aboutme from "./pages/Aboutme";
-
+import PostDetails from "./components/Posts/PostDetails";
+import PostListPopup from "./components/Posts/post/PostListPopup";
+import Share from "./components/share/Share";
 const Signin = lazy(() => import("./pages/Auth/Signin.jsx"));
+
 const HomeScreen = lazy(() => import("./pages/HomeScreen"));
 const BlogScreen = lazy(() => import("./pages/BlogScreen"));
 const PostScreen = lazy(() => import("./pages/PostScreen"));
@@ -46,6 +49,7 @@ const App = () => {
     contactUsModal,
     ourReviews,
     blogDetails,
+    postDetails,
     portfolioModal,
     aboutMeModal,
   } = useSelector((state) => state.auth);
@@ -53,7 +57,7 @@ const App = () => {
   const { pathname } = location;
   const [activeNav, setActiveNav] = useState(false);
   return (
-    <div className="relative flex-1 flex flex-col text-text bg-bg_cl align-center justify-center font-sans">
+    <div className="flex-1 flex flex-col text-text bg-bg_cl align-center justify-center font-sans">
       <Navbar
         pathname={pathname}
         setActiveNav={setActiveNav}
@@ -126,6 +130,14 @@ const App = () => {
                 }
               />
               <Route
+                path="/create-post"
+                element={
+                  <Suspense fallback={Loader()}>
+                    <PostListPopup />
+                  </Suspense>
+                }
+              />
+              <Route
                 path="/projects"
                 element={
                   <Suspense fallback={Loader()}>
@@ -143,6 +155,7 @@ const App = () => {
       {ourTeamModal && <Team />}
       {contactUsModal && <Contact />}
       {blogDetails && <BlogDetails />}
+      {postDetails && <PostDetails />}
       {portfolioModal && <PortfolioScreen />}
     </div>
   );
