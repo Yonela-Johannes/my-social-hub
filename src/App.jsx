@@ -12,12 +12,16 @@ import PortfolioScreen from "./pages/PortfolioScreen";
 import Aboutme from "./pages/Aboutme";
 import PostDetails from "./components/Posts/PostDetails";
 import PostListPopup from "./components/Posts/post/PostListPopup";
+
 import Share from "./components/share/Share";
+import StoryListPopup from "./components/video/StorylistPopup";
+import VideoDetailsScreen from "./pages/VideoDetailsScreen";
 const Signin = lazy(() => import("./pages/Auth/Signin.jsx"));
 
 const HomeScreen = lazy(() => import("./pages/HomeScreen"));
 const BlogScreen = lazy(() => import("./pages/BlogScreen"));
 const PostScreen = lazy(() => import("./pages/PostScreen"));
+const StoriesScreen = lazy(() => import("./pages/StoriesScreen"));
 const BlogDetailsScreen = lazy(() =>
   import("./components/Blogs/BlogDetailsScreen")
 );
@@ -106,10 +110,26 @@ const App = () => {
                 }
               />
               <Route
+                path="/stories"
+                element={
+                  <Suspense fallback={Loader()}>
+                    <StoriesScreen />
+                  </Suspense>
+                }
+              />
+              <Route
                 path="/blogs/:id"
                 element={
                   <Suspense fallback={Loader()}>
                     <BlogDetailsScreen />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/details/:id"
+                element={
+                  <Suspense fallback={Loader()}>
+                    <VideoDetailsScreen />
                   </Suspense>
                 }
               />
@@ -134,6 +154,14 @@ const App = () => {
                 element={
                   <Suspense fallback={Loader()}>
                     <PostListPopup />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/create-story"
+                element={
+                  <Suspense fallback={Loader()}>
+                    <StoryListPopup />
                   </Suspense>
                 }
               />

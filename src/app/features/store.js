@@ -6,8 +6,10 @@ import thunk from 'redux-thunk';
 import bookSessionReducer from './bookSession/bookSessionSlice'
 import contactSlice from './contact/contactSlice';
 import postsSlice from './post/postsSlice';
+import storySlice from './videos/videoSlice';
 import blogsSlice from './blogs/blogsSlice';
 import serverSlice from './server/serverSlice'
+import videoSlice from "./videos/videoSlice";
 
 const persistConfig = {
   key: 'root',
@@ -21,6 +23,7 @@ const rootReducer = {
   book_session: bookSessionReducer,
   contact: contactSlice,
   posts: postsSlice,
+  stories: videoSlice,
   blogs: blogsSlice,
   servers: serverSlice,
 }
