@@ -1,23 +1,30 @@
 import styles from "./comments.module.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { baseUrl } from "../../../constants/base_urls";
+import { baseUrl } from "../../constants/base_urls";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { FallingLines } from "react-loader-spinner";
 import moment from "moment/moment";
+import { postComments } from "../../app/features/post/postsSlice";
+import { useDispatch, useSelector } from "react-redux";
 
-const Comments = ({blogId, userId, setCommentsCount}) => {
-  const [loading, setLoading] = useState(false)
-  const [data, setData] = useState([])
+export default function PostDetailsComments({
+  postId,
+  userId,
+}) {
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
   const [desc, setDesc] = useState("");
-
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if(blogId){
+    if (postId) {
       const fetchComments = async () => {
         try {
-          const response = await fetch(`${baseUrl}blog-comment/all-comments/${blogId}`);
+          const response = await fetch(
+            `${baseUrl}post-comment/all-comments/${postId}`
+          );
           if (response.ok) {
             const data = await response.json();
             setData(data);
@@ -29,9 +36,9 @@ const Comments = ({blogId, userId, setCommentsCount}) => {
         }
       };
       fetchComments();
-      setCommentsCount(data?.length)
+      dispatch(postComments(data?.length));
     }
-  },[blogId, data])
+  }, [postId, data]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,7 +46,7 @@ const Comments = ({blogId, userId, setCommentsCount}) => {
     if (desc.length < 10)
     return toast("Comment should have a minimum of 10 characters");
     setLoading(true)
-    const response = await axios.post(`${baseUrl}blog-comment`, {blogId, userId, comment: desc })
+    const response = await axios.post(`${baseUrl}post-comment`, {postId, userId, comment: desc })
     if(response?.data?.status === 'success'){
       setLoading(false)
       setDesc("")
@@ -51,6 +58,7 @@ const Comments = ({blogId, userId, setCommentsCount}) => {
       return toast("Comment add failed");
     }
   };
+
 
   return (
     <div className={styles.container}>
@@ -104,6 +112,4 @@ const Comments = ({blogId, userId, setCommentsCount}) => {
       </div>
     </div>
   );
-};
-
-export default Comments;
+}

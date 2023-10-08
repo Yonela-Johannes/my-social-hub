@@ -9,6 +9,7 @@ module.exports = {
       },
       colors: {
         text: '#fff',
+        card: '#181818',
         primary: '#3d3d3d',
         secondary: '#5A2E98',
         bg_cl: '#181818',

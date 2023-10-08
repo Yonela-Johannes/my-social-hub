@@ -1,9 +1,7 @@
 import React from "react";
 import BlogSkeleton from "./BlogSkeleton";
 import { useDispatch, useSelector } from "react-redux";
-import { getBlogs, loveBlog } from "../../app/features/blogs/blogsSlice";
 import SocialShareButtons from "./SocialShareButtons";
-import Comments from "../../pages/blog/comments/Comments";
 import parse from "html-react-parser";
 import moment from "moment/moment";
 import {
@@ -14,36 +12,38 @@ import {
 } from "react-icons/ai";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
-import Footer from "../../pages/blog/footer/Footer";
+import Footer from "../../pages/post/footer/Footer";
+import { getPosts, lovePost } from "../../app/features/post/postsSlice";
+import PostDetailsComments from "./PostDetailsComments";
 
-const BlogDetailsScreen = () => {
-  const { blogs } = useSelector((state) => state.blogs);
+const PostDetailsScreen = () => {
+  const { posts } = useSelector((state) => state.posts);
   const params = useParams();
   const { _id } = useSelector((state) => state.auth);
-  const [blog, setBlog] = React.useState();
+  const [post, setPost] = React.useState();
   const [loading, setLoading] = React.useState(false);
   const dispatch = useDispatch();
   const [commentsCount, setCommentsCount] = React.useState();
   const { id } = params;
 
   React.useEffect(() => {
-    dispatch(getBlogs());
-  }, [blogs]);
+    dispatch(getPosts());
+  }, [posts]);
 
   React.useEffect(() => {
     setLoading(true);
-    if (blogs.length > 0) {
-      const getData = blogs?.find((blog) => blog?._id === id);
-      setBlog(getData);
+    if (posts.length > 0) {
+      const getData = posts?.find((post) => post?._id === id);
+      setPost(getData);
     } else {
       setLoading(false);
     }
     setLoading(false);
-  }, [blogs, blog]);
+  }, [posts, post]);
 
   const handleLike = async () => {
-    if (!_id) return toast("Sorry you have to sign in to like blog post");
-    dispatch(loveBlog({ blogId: blog?._id, userId: _id }));
+    if (!_id) return toast("Sorry you have to sign in to like post");
+    dispatch(lovePost({ postId: post?._id, userId: _id }));
   };
 
   return (
@@ -56,41 +56,41 @@ const BlogDetailsScreen = () => {
           <article className="md:w-[1000px]">
             <img
               className="rounded-xl w-full md:h-[600px] md:w-[1000px] object-cover"
-              src={blog?.image}
-              alt={blog?.title}
+              src={post?.image}
+              alt={post?.title}
             />
             <div className="">
               <div className="">
                 <div className="flex items-center w-full justify-between">
                   <h1 className="text-xl font-medium font-roboto mt-2 text-dark-hard md:text-[26px]">
-                    {blog?.title}
+                    {post?.title}
                   </h1>
                   <h1 className="font-medium text-lighter mt-2 text-dark-hard md:text-[15px]">
-                    {moment(blog?.createdAt).fromNow()}
+                    {moment(post?.createdAt).fromNow()}
                   </h1>
                 </div>
                 <div className="flex items-center justify-between text-lighter">
                   <h1 className="font-medium text-lighter mt-2 text-dark-hard md:text-[15px]">
-                    {blog?.user?.given_name} {blog?.user?.family_name}
+                    {post?.user?.given_name} {post?.user?.family_name}
                   </h1>
                   <div className="flex gap-4">
                     <div
                       onClick={handleLike}
                       className={`${
-                        blog?.lovedUsers?.find((user) => user._id === _id)
+                        post?.lovedUsers?.find((user) => user._id === _id)
                           ? "text-red"
                           : ""
                       } flex text-[12px] gap-2 items-center hover:text-red duration-300 cursor-pointer`}
                     >
-                      {blog?.loveCount}
-                      {blog?.lovedUsers?.find((user) => user._id === _id) ? (
+                      {post?.loveCount}
+                      {post?.lovedUsers?.find((user) => user._id === _id) ? (
                         <AiFillHeart size={18} />
                       ) : (
                         <AiOutlineHeart size={18} />
                       )}
                     </div>
                     <div className="flex text-[12px] gap-2 items-center">
-                      {blog?.viewCount}
+                      {post?.viewCount}
                       <AiOutlineEye size={18} />
                     </div>
                     <div className="flex text-[12px] gap-2 items-center">
@@ -105,19 +105,19 @@ const BlogDetailsScreen = () => {
                   Share on
                 </h2>
                 <SocialShareButtons
-                  url={encodeURI(window.location.href + "/" + blog?._id)}
-                  title={encodeURIComponent(blog?.title)}
+                  url={encodeURI(window.location.href + "/" + post?._id)}
+                  title={encodeURIComponent(post?.title)}
                 />
               </div>
               <p className="font-roboto mt-2 text-dark-hard md:text-[18px]">
-                {parse(`${blog?.message}`)}
+                {parse(`${post?.message}`)}
               </p>
             </div>
           </article>
           <div></div>
           <div>
-            <Comments
-              blogId={blog?._id}
+            <PostDetailsComments
+              blogId={post?._id}
               userId={_id}
               setCommentsCount={setCommentsCount}
             />
@@ -131,4 +131,4 @@ const BlogDetailsScreen = () => {
   );
 };
 
-export default BlogDetailsScreen;
+export default PostDetailsScreen;

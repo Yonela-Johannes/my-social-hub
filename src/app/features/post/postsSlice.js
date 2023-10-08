@@ -7,13 +7,13 @@ import { user } from '../auth/authSlice'
 const initialState = {
   lovePost: false,
   message: '',
+  commentCount: 0,
   posts: [{
     user,
     image: "",
     loveCount: 0,
     lovedUsers:[],
     comment: [],
-    commentCount: 0,
   }]
 }
 
@@ -35,9 +35,9 @@ export const getPost = async (id) => {
   }
 };
 
-export const createPost = createAsyncThunk("posts/create-post", async (data) => {
+export const createPost = createAsyncThunk("posts/create-post", async (post) => {
   try {
-    const response = await axios.post(`${url}/posts`, data);
+    const response = await axios.post(`${url}/posts`, post);
     return response.data
   } catch (error) {
     console.log(error);
@@ -70,10 +70,23 @@ export const lovePost = createAsyncThunk("posts/love-posts", async (ids) => {
   }
 });
 
+export const viewPost = createAsyncThunk("posts/view-post", async (id) => {
+  try {
+    const { data } = await axios.patch(`${url}/posts/view/${id}`);
+    return await data
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 const  postsSlice = createSlice({
   name: "posts",
   initialState,
-  reducers: {},
+  reducers: {
+    postComments(state, payload) {
+      state.commentCount = payload.payload
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getPosts.pending, (state) => {
@@ -104,6 +117,7 @@ const  postsSlice = createSlice({
         state.message = 'Something went wrong with reacting to post.';
       })
     }
-})
+});
 
+export const { postComments } = postsSlice.actions;
 export default postsSlice.reducer;

@@ -20,7 +20,7 @@ const rootReducer = {
   auth: persistedUserReducer,
   book_session: bookSessionReducer,
   contact: contactSlice,
-  post: postsSlice,
+  posts: postsSlice,
   blogs: blogsSlice,
   servers: serverSlice,
 }
