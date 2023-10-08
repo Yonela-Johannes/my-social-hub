@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Alpha from "../assets/AlphaWhite.png";
 import { useSelector } from "react-redux";
-import { AiOutlineComment, AiOutlineLogin } from "react-icons/ai";
+import { AiOutlineComment, AiOutlineLogin, AiOutlineVideoCamera } from "react-icons/ai";
 import { MdOutlineAccessTime } from "react-icons/md";
 
 const Navbar = ({ pathname, homeScreen }) => {
@@ -88,6 +88,15 @@ const Navbar = ({ pathname, homeScreen }) => {
                     <p className="hidden md:block">Timeline</p>
                   </button>
                   <button
+                    className={`${
+                      homeScreen ? "bg-transparent" : " p-2"
+                    } border-none bg-transparent hover:bg-transparent`}
+                    onClick={() => navigate("/stories")}
+                  >
+                    <AiOutlineVideoCamera className="h-7 w-7 text-white" />
+                    <p className="hidden md:block">Stories</p>
+                  </button>
+                  <button
                     title="Log out"
                     className="border-none"
                     onClick={() => handleLogout()}
@@ -125,6 +134,15 @@ const Navbar = ({ pathname, homeScreen }) => {
               >
                 <MdOutlineAccessTime className="h-7 w-7 text-white " />
                 <p className="hidden md:block">Timeline</p>
+              </button>
+              <button
+                className={`${
+                  homeScreen ? "bg-transparent" : " p-2"
+                } border-none bg-transparent hover:bg-transparent`}
+                onClick={() => navigate("/stories")}
+              >
+                <AiOutlineVideoCamera className="h-7 w-7 text-white" />
+                <p className="hidden md:block">Stories</p>
               </button>
               <button
                 className={`${homeScreen ? "bg-transparent" : " p-2"} `}

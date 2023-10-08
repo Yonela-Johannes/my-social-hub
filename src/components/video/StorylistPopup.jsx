@@ -1,6 +1,6 @@
-import CreateStory from '../../video/CreateStory';
+import CreateStory from "./CreateStory"
 
-const PostListPopup = ({close}) => {
+const StoryListPopup = ({close}) => {
   return (
       <div className="flex flex-col m-auto my-2 md:my-10 items-center justify-center bg-bg_alt pt-10 pb-4 w-[320px] md:w-[1000px] self-center rounded-lg md:px-10 md:p-20">
         <div className="flex flex-col items-center w-[300px] md:w-full">
@@ -15,4 +15,4 @@ const PostListPopup = ({close}) => {
   )
 }
 
-export default PostListPopup
+export default StoryListPopup

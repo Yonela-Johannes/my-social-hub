@@ -3,7 +3,6 @@ import Layout from '../components/Layout/Layout';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { MdAdd } from 'react-icons/md';
-import Featured from './blog/featured/Featured';
 import Footer from './blog/footer/Footer';
 import Post from '../components/Posts/Post';
 import { getPosts } from '../app/features/post/postsSlice';
@@ -33,10 +32,7 @@ const PostScreen = () => {
           </div>
         </div>
       )}
-      <div className="px-2">
-        <Featured />
-      </div>
-      <div className='flex flex-col flex-wrap text-center justify-center items-center gap-10 w-full mt-20'>
+      <div className='flex flex-col flex-wrap text-center justify-center items-center gap-10 w-full mt-5'>
         {posts?.length > 0 ? posts?.map((post) => <Post post={post} key={post._id}/>) : (<p className='text-base w-full'>No Posts...</p>)}
       </div>
       <div className="mb-12 md:mb-20">

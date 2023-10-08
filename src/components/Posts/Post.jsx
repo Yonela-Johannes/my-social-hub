@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { baseUrl } from "../../constants/base_urls";
 import parse from "html-react-parser";
+import toast, { Toaster } from "react-hot-toast";
 import moment from "moment";
 import DocumentMeta from "react-document-meta";
 import {
@@ -88,6 +89,7 @@ const Post = ({ post }) => {
 
   return (
     <DocumentMeta {...meta}>
+    <Toaster />
       <div className="group flex flex-col my-4 rounded-xl bg-bg_alt">
         <div className="">
           <div className="flex items-center mt-2 ml-2">
