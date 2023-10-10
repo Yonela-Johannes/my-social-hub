@@ -2,18 +2,12 @@ import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Alpha from "../assets/AlphaWhite.png";
 import { useSelector } from "react-redux";
-import { AiOutlineComment, AiOutlineLogin, AiOutlineVideoCamera } from "react-icons/ai";
+import { AiOutlineComment, AiOutlineHome, AiOutlineLogin, AiOutlineVideoCamera } from "react-icons/ai";
 import { MdOutlineAccessTime } from "react-icons/md";
 
 const Navbar = ({ pathname, homeScreen }) => {
   const { given_name, email, picture } = useSelector((state) => state.auth);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (given_name && email && picture) {
-      navigate("/blogs");
-    }
-  }, [given_name, email, picture]);
 
   const handleLogout = () => {
     localStorage.clear();
@@ -73,9 +67,18 @@ const Navbar = ({ pathname, homeScreen }) => {
                     className={`${
                       homeScreen ? "bg-transparent" : " p-2"
                     } border-none bg-transparent hover:bg-transparent`}
+                    onClick={() => navigate("/")}
+                  >
+                    <AiOutlineHome className="h-7 w-7 text-white md:hidden" />
+                    <p className="hidden md:block">Home</p>
+                  </button>
+                  <button
+                    className={`${
+                      homeScreen ? "bg-transparent" : " p-2"
+                    } border-none bg-transparent hover:bg-transparent`}
                     onClick={() => navigate("/blogs")}
                   >
-                    <AiOutlineComment className="h-7 w-7 text-white" />
+                    <AiOutlineComment className="h-7 w-7 text-white md:hidden" />
                     <p className="hidden md:block">Blogs</p>
                   </button>
                   <button
@@ -84,7 +87,7 @@ const Navbar = ({ pathname, homeScreen }) => {
                     } border-none bg-transparent hover:bg-transparent`}
                     onClick={() => navigate("/timeline")}
                   >
-                    <MdOutlineAccessTime className="h-7 w-7 text-white" />
+                    <MdOutlineAccessTime className="h-7 w-7 text-white md:hidden" />
                     <p className="hidden md:block">Timeline</p>
                   </button>
                   <button
@@ -93,7 +96,7 @@ const Navbar = ({ pathname, homeScreen }) => {
                     } border-none bg-transparent hover:bg-transparent`}
                     onClick={() => navigate("/stories")}
                   >
-                    <AiOutlineVideoCamera className="h-7 w-7 text-white" />
+                    <AiOutlineVideoCamera className="h-7 w-7 text-white md:hidden" />
                     <p className="hidden md:block">Stories</p>
                   </button>
                   <button
@@ -121,9 +124,18 @@ const Navbar = ({ pathname, homeScreen }) => {
                 className={`${
                   homeScreen ? "bg-transparent" : " p-2"
                 } border-none bg-transparent hover:bg-transparent`}
+                onClick={() => navigate("/")}
+                >
+                <AiOutlineHome className="h-7 w-7 text-white md:hidden" />
+                <p className="hidden md:block">Home</p>
+              </button>
+              <button
+                className={`${
+                  homeScreen ? "bg-transparent" : " p-2"
+                } border-none bg-transparent hover:bg-transparent`}
                 onClick={() => navigate("/blogs")}
               >
-                <AiOutlineComment className="h-7 w-7 text-white " />
+                <AiOutlineComment className="h-7 w-7 text-white md:hidden " />
                 <p className="hidden md:block">Blogs</p>
               </button>
               <button
@@ -132,7 +144,7 @@ const Navbar = ({ pathname, homeScreen }) => {
                 } border-none bg-transparent hover:bg-transparent`}
                 onClick={() => navigate("/timeline")}
               >
-                <MdOutlineAccessTime className="h-7 w-7 text-white " />
+                <MdOutlineAccessTime className="h-7 w-7 text-white md:hidden " />
                 <p className="hidden md:block">Timeline</p>
               </button>
               <button
@@ -141,7 +153,7 @@ const Navbar = ({ pathname, homeScreen }) => {
                 } border-none bg-transparent hover:bg-transparent`}
                 onClick={() => navigate("/stories")}
               >
-                <AiOutlineVideoCamera className="h-7 w-7 text-white" />
+                <AiOutlineVideoCamera className="h-7 w-7 text-white md:hidden" />
                 <p className="hidden md:block">Stories</p>
               </button>
               <button
