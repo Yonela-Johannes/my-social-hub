@@ -28,7 +28,7 @@ const Footer = () => {
     <footer className="w-full pb-10">
       <div className="flex items-center gap-20 justify-center flex-col w-full">
           <div className="flex items-center justify-evenly w-full lg:py-5">
-            <div className="mt-8 flex items-center gap-20 text-center justify-center">
+            <div className="mt-8 flex flex-col md:flex-row items-center gap-20 text-center justify-center">
               <ul className="flex items-center gap-5 h-min bg-primary py-3 px-2 rounded-full w-min">
               <p className="text-[16px]">Follow:</p>
                 {socialLinks.map(({ icon, link, name }) => (

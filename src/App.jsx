@@ -70,7 +70,7 @@ const App = () => {
       <div className={`sm:w-full self-center flex w-full`}>
         <div
           className={`w-full h-[calc(100vh)] ${
-            pathname == "/" || pathname == "/signin" || pathname == "/signup"
+            pathname == "/k," || pathname == "/signin" || pathname == "/signup"
               ? "md:overflow-hidden"
               : "overflow-y-scroll"
           } flex xl:flex-row flex-reverse`}
