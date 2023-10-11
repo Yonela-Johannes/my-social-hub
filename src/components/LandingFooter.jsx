@@ -1,9 +1,9 @@
 import React from 'react';
-import { AiFillFacebook, AiFillInstagram, AiFillLinkedin, AiOutlineInstagram, AiOutlineLinkedin } from 'react-icons/ai';
+import { AiFillFacebook, AiFillGithub, AiFillInstagram, AiFillLinkedin } from 'react-icons/ai';
 import logo from  "../assets/AlphaWhite.png"
 const LandingFooter = () => {
   return (
-    <footer className='md:mb-20'>
+    <footer className='md:mb-20 mt-16'>
           <div className="bg-bg_alt p-2 border border-secondary pt-7 rounded-md">
           <div className="md:px-20">
             <div className="flex">
@@ -11,8 +11,7 @@ const LandingFooter = () => {
               <p>Yonela Johannes</p>
             </div>
               <p className="p-2 w-[320px] md:w-[940px]">
-                When an unknown prnoto sans took a galley and scrambled it to make specimen book not only five When an
-                unknown prnoto sans took a galley and scrambled it to five centurie.
+              I'm passionate about sharing people's success stories, delving into their backgrounds and life journeys. My blog is all about offering motivation and guidance on crafting a successful career or life path. Moreover, I'm excited to share my personal journey with my readers. Along the way, I'll be featuring posts about individuals who have profoundly influenced my life, and the individuals and companies that have been a part of my professional and educational journey.
               </p>
           </div>
 
@@ -24,24 +23,21 @@ const LandingFooter = () => {
 
             <ul className="flex items-center text-[26px] gap-8">
 
-              <li>
-                <a href="#">
+              <a href="https://github.com/Yonela-Johannes" target='_blank'>
+                  <AiFillGithub />
+              </a>
+
+              <a href="https://www.facebook.com/JohannesYonela" target='_blank'>
                   <AiFillFacebook />
-                </a>
-              </li>
+              </a>
 
-              <li>
-                <a href="#">
+              <a href="https://www.instagram.com/yonelajohannes" target='_blank'>
                   <AiFillInstagram />
-                </a>
-              </li>
+              </a>
 
-              <li>
-                <a href="#">
+              <a href="https://www.linkedin.com/in/yonela-johannes/" target='_blank'>
                   <AiFillLinkedin />
-                </a>
-              </li>
-
+              </a>
             </ul>
 
           </div>

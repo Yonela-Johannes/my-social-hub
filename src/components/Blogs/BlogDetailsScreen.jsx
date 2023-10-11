@@ -15,6 +15,7 @@ import {
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import Footer from "../../pages/blog/footer/Footer";
+import { clientBaseUrl } from "../../constants/base_urls";
 
 const BlogDetailsScreen = () => {
   const { blogs } = useSelector((state) => state.blogs);
@@ -105,7 +106,7 @@ const BlogDetailsScreen = () => {
                   Share on
                 </h2>
                 <SocialShareButtons
-                  url={encodeURI(window.location.href + "/" + blog?._id)}
+                  url={encodeURI(clientBaseUrl + blog?._id)}
                   title={encodeURIComponent(blog?.title)}
                 />
               </div>

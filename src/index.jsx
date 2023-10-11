@@ -7,6 +7,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import { store, persistor } from './app/features/store.js'
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux'
+import { ScrollRestoration } from "react-router-dom";
 import './styles/calendar.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -19,4 +20,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </PersistGate>
     </Provider>
   </HashRouter>,
+    <ScrollRestoration
+      getKey={(location, matches) => {
+    return location.pathname;
+  }}
+     />
 );
