@@ -2,8 +2,8 @@
   "name": "Nomi",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://main--ornate-shortbread-84fbc1.netlify.app/",
-  "proxy": "https://determined-hare-nightshirt.cyclic.app/api/api",
+  "homepage": "",
+  "proxy": "",
   "scripts": {
     "start": "vite --host",
     "dev": "vite --host",
