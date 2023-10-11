@@ -2,7 +2,7 @@
   "name": "Nomi",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://yonela-johannes.github.io/mysite/",
+  "homepage": "https://yonela-johannes.github.io/mysite",
   "proxy": "",
   "scripts": {
     "start": "vite --host",
