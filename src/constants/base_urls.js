@@ -1,2 +1,2 @@
-export const baseUrl = "http://localhost:5000/api/"
+export const baseUrl = "https://healthy-sweater-bass.cyclic.app"
 export const clientBaseUrl = 'https://yonela-johannes.github.io/mysite/'
