@@ -101,7 +101,6 @@ const VideoCard = ({
           <div className="relative" onClick={() => navigate(`/details/${storyId}`)}>
             <video
               loop
-              autoPlay
               muted
               ref={videoRef}
               src={story}
@@ -114,13 +113,13 @@ const VideoCard = ({
                 <div
                   onClick={handleLike}
                   className={`${
-                    lovedUsers?.find((user) => user._id === _id)
+                    lovedUsers?.find((user) => user?._id === userId)
                       ? "text-red"
                       : ""
                   } flex text-[12px] gap-2 items-center hover:text-red duration-300 cursor-pointer`}
                 >
                   {loveCount}
-                  {lovedUsers?.find((user) => user._id === _id) ? (
+                  {lovedUsers?.find((user) => user?._id === userId) ? (
                     <div className="cursor-pointer border border-red rounded-full p-2 hover:bg-green duration-300 hover:text-white">
                       <AiFillHeart size={18} />
                     </div>
@@ -146,28 +145,28 @@ const VideoCard = ({
             </div>
           </div>
 
-          {isHover && (
+          {/* {isHover && ( */}
             <div className="absolute bottom-6 cursor-pointer flex gap-4 right-2 w-[100px]">
               {playing ? (
-                <div onClick={onVideoPress}>
-                  <BsFillPauseFill className="text-primary text-3xl" />
+                <div onClick={onVideoPress} className="cursor-pointer text-white rounded-full p-2 bg-green duration-300 hover:text-white">
+                  <BsFillPauseFill size={18}/>
                 </div>
               ) : (
-                <div onClick={onVideoPress}>
-                  <BsFillPlayFill className="text-primary text-3xl" />
+                <div onClick={onVideoPress} className="cursor-pointer text-white rounded-full p-2 bg-green duration-300 hover:text-white">
+                  <BsFillPlayFill size={18}/>
                 </div>
               )}
               {isVideoMuted ? (
-                <div onClick={() => setIsVideoMuted(false)}>
-                  <HiVolumeOff className="text-primary text-3xl" />
+                <div onClick={() => setIsVideoMuted(false)} className="cursor-pointer text-white rounded-full p-2 bg-green duration-300 hover:text-white">
+                  <HiVolumeOff size={18}/>
                 </div>
               ) : (
-                <div onClick={() => setIsVideoMuted(true)}>
-                  <HiVolumeUp className="text-primary text-3xl" />
+                <div onClick={() => setIsVideoMuted(true)} className="cursor-pointer text-white rounded-full p-2 bg-green duration-300 hover:text-white">
+                  <HiVolumeUp size={18}/>
                 </div>
               )}
             </div>
-          )}
+          {/* )} */}
         </div>
       </div>
     </div>

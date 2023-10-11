@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { AiFillFacebook, AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 import Share from "./share/Share";
 
@@ -32,12 +31,13 @@ const Footer = () => {
               <ul className="flex items-center gap-5 h-min bg-primary py-3 px-2 rounded-full w-min">
               <p className="text-[16px]">Follow:</p>
                 {socialLinks.map(({ icon, link, name }) => (
-                  <li
+                  <a
+                    href={link} target="_blank"
                     key={name}
                     className="cursor-pointer bg-secondary border border-lighter text-white rounded-full p-2 hover:bg-green duration-300"
                   >
-                    <Link href={link}>{icon}</Link>
-                  </li>
+                    {icon}
+                  </a>
                 ))}
               </ul>
             <Share />

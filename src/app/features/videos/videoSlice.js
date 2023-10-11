@@ -1,8 +1,7 @@
 import axios from 'axios';
-const url = 'http://localhost:5000/api';
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { user } from '../auth/authSlice'
-
+import { baseUrl } from '../../../constants/base_urls';
 
 const initialState = {
   loveStory: false,
@@ -16,21 +15,41 @@ const initialState = {
     loveCount: 0,
     lovedUsers:[],
     comment: [],
+  }],
+  recentStories: [{
+    description: '',
+    video: '',
+    topic: '',
+    user,
+    image: "",
+    loveCount: 0,
+    lovedUsers:[],
+    comment: [],
   }]
 }
 
 export const getStories = createAsyncThunk("stories/fetch-stories",  async () =>  {
   try {
-    const response = await axios.get(`${url}/stories`);
+    const response = await axios.get(`${baseUrl}/stories`);
     return await response.data;
   } catch (error) {
     console.log(error);
   }
 })
 
+export const getRecententStories = createAsyncThunk("stories/fetch-recent-stories",  async () =>  {
+  try {
+    const response = await axios.get(`${baseUrl}/stories/recent`);
+    return await response.data;
+  } catch (error) {
+    console.log(error);
+  }
+})
+
+
 export const getStory = async (id) => {
   try {
-    const { data } = await axios.get(`${url}/stories/${id}`);
+    const { data } = await axios.get(`${baseUrl}/stories/${id}`);
     return await data;
   } catch (error) {
     console.log(error);
@@ -39,7 +58,7 @@ export const getStory = async (id) => {
 
 export const createStory = createAsyncThunk("stories/create-story", async (story) => {
   try {
-    const response = await axios.post(`${url}/stories`, story);
+    const response = await axios.post(`${baseUrl}/stories`, story);
     return response.data
   } catch (error) {
     console.log(error);
@@ -48,7 +67,7 @@ export const createStory = createAsyncThunk("stories/create-story", async (story
 
 export const removeStory = createAsyncThunk("story/remove-story",async (id) => {
   try {
-    await axios.delete(`${url}/stories/${id}`);
+    await axios.delete(`${baseUrl}/stories/${id}`);
   } catch (error) {
     console.log(error);
   }
@@ -56,7 +75,7 @@ export const removeStory = createAsyncThunk("story/remove-story",async (id) => {
 
 export const updateStory = createAsyncThunk("stories/fetch-stories", async (data) => {
   try {
-    const response = await axios.patch(`${url}/stories/${id}`, story);
+    const response = await axios.patch(`${baseUrl}/stories/${id}`, story);
     return response.data
   } catch (error) {
     console.log(error);
@@ -65,7 +84,7 @@ export const updateStory = createAsyncThunk("stories/fetch-stories", async (data
 
 export const loveStory = createAsyncThunk("stories/love-stories", async (ids) => {
   try {
-    const response = await axios.patch(`${url}/stories/love`, ids);
+    const response = await axios.patch(`${baseUrl}/stories/love`, ids);
     return await response.data
   } catch (error) {
     console.log(error);
@@ -74,7 +93,7 @@ export const loveStory = createAsyncThunk("stories/love-stories", async (ids) =>
 
 export const viewStory = createAsyncThunk("stories/view-story", async (id) => {
   try {
-    const { data } = await axios.patch(`${url}/stories/view/${id}`);
+    const { data } = await axios.patch(`${baseUrl}/stories/view/${id}`);
     return await data
   } catch (error) {
     console.log(error);
@@ -117,6 +136,22 @@ const  storiesSlice = createSlice({
       .addCase(loveStory.rejected, (state) => {
         state.loveStory = false;
         state.message = 'Something went wrong with reacting to story.';
+      })
+      .addCase(getRecententStories.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(getRecententStories.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.recentStories = action.payload
+      })
+      .addCase(getRecententStories.rejected, (state) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.isSuccess = false;
+        state.contact
+        act = null;
+        state.message = 'Fetching contact error something went wrong.';
       })
     }
 });

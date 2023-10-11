@@ -30,10 +30,10 @@ const Footer = () => {
           </div>
           <div className={styles.list}>
             <span className={styles.listTitle}>Social</span>
-            <Link to="/">Facebook</Link>
-            <Link to="/">Instagram</Link>
-            <Link to="/">LinkedIn</Link>
-            <Link to="/">Tiktok</Link>
+            <a target="_blank" href="https://github.com/Yonela-Johannes">Github</a>
+            <a target="_blank" href="https://www.facebook.com/JohannesYonela">Facebook</a>
+            <a target="_blank" href="https://www.instagram.com/yonelajohannes">Instagram</a>
+            <a target="_blank" href="https://www.linkedin.com/in/yonela-johannes/">LinkedIn</a>
           </div>
         </div>
       </div>

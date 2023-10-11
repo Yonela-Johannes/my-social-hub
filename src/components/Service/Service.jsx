@@ -76,13 +76,13 @@ function Service() {
             return (
               <div
                 key={name}
-                className="relative cursor-pointer mx-4 h-min">
+                className="relative cursor-pointer mx-2 h-min">
                 <div className="absolute z-10 drop-shadow-md shadow-black px-2 rounded-md bg-opacity-[.2] text-black top-1 left-1 bg-white">
                   <p className="drop-shadow-md shadow-black text-[14px] sm:text-base">{label}</p>
                   <h6 className="font-extrabold drop-shadow-sm text-[16px] shadow-black">{name}</h6>
                 </div>
-                <div className="w-[160px] lg:h-80 md:w-72">
-                  <img src={image} className='w-[160px] h-[180px] md:w-72 h-50 object-cover rounded-md' alt="service" />
+                <div className="">
+                  <img src={image} className='w-[100px] h-[100px] md:w-[120px] rounded-full md:h-[120px] object-cover' alt="service" />
                 </div>
               </div>
             );

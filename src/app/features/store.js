@@ -3,13 +3,10 @@ import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import authReducer from './auth/authSlice'
 import thunk from 'redux-thunk';
-import bookSessionReducer from './bookSession/bookSessionSlice'
 import contactSlice from './contact/contactSlice';
 import postsSlice from './post/postsSlice';
 import storySlice from './videos/videoSlice';
 import blogsSlice from './blogs/blogsSlice';
-import serverSlice from './server/serverSlice'
-import videoSlice from "./videos/videoSlice";
 
 const persistConfig = {
   key: 'root',
@@ -20,12 +17,10 @@ const persistedUserReducer = persistReducer(persistConfig, authReducer);
 
 const rootReducer = {
   auth: persistedUserReducer,
-  book_session: bookSessionReducer,
   contact: contactSlice,
   posts: postsSlice,
-  stories: videoSlice,
+  stories: storySlice,
   blogs: blogsSlice,
-  servers: serverSlice,
 }
 
 

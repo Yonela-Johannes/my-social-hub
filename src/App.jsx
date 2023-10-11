@@ -1,6 +1,6 @@
-import { useState, useEffect, lazy, Suspense } from "react";
+import { useState, lazy, Suspense } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { Navbar, Sidebar } from "./components";
+import { Navbar } from "./components";
 import { MutatingDots } from "react-loader-spinner";
 import WorkPopup from "./components/Work/WorkPopup";
 import Team from "./components/Service/Team";
@@ -12,8 +12,6 @@ import PortfolioScreen from "./pages/PortfolioScreen";
 import Aboutme from "./pages/Aboutme";
 import PostDetails from "./components/Posts/PostDetails";
 import PostListPopup from "./components/Posts/post/PostListPopup";
-
-import Share from "./components/share/Share";
 import StoryListPopup from "./components/video/StorylistPopup";
 import VideoDetailsScreen from "./pages/VideoDetailsScreen";
 const Signin = lazy(() => import("./pages/Auth/Signin.jsx"));
