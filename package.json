@@ -2,7 +2,7 @@
   "name": "Nomi",
   "private": true,
   "version": "0.0.0",
-  "homepage": ["https://johannesyonela.engineer","https://yonela-johannes.github.io/mysite"],
+  "homepage": "https://yonela-johannes.github.io/mysite",
   "proxy": "https://healthy-sweater-bass.cyclic.app",
   "scripts": {
     "start": "vite --host",
