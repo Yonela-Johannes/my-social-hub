@@ -1,0 +1,10 @@
+import{r as l}from"./react.6bac1629.js";import{R as b,u as k,a as x,b as R,c as C}from"./react-router.48f4d0ba.js";import{c as L,b as m}from"./@remix-run.0f90e68c.js";/**
+ * React Router DOM v6.4.0
+ *
+ * Copyright (c) Remix Software Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.md file in the root directory of this source tree.
+ *
+ * @license MIT
+ */function h(){return h=Object.assign?Object.assign.bind():function(e){for(var t=1;t<arguments.length;t++){var o=arguments[t];for(var r in o)Object.prototype.hasOwnProperty.call(o,r)&&(e[r]=o[r])}return e},h.apply(this,arguments)}function O(e,t){if(e==null)return{};var o={},r=Object.keys(e),n,a;for(a=0;a<r.length;a++)n=r[a],!(t.indexOf(n)>=0)&&(o[n]=e[n]);return o}function P(e){return!!(e.metaKey||e.altKey||e.ctrlKey||e.shiftKey)}function H(e,t){return e.button===0&&(!t||t==="_self")&&!P(e)}const j=["onClick","relative","reloadDocument","replace","state","target","to","preventScrollReset"];function D(e){let{basename:t,children:o,window:r}=e,n=l.exports.useRef();n.current==null&&(n.current=L({window:r,v5Compat:!0}));let a=n.current,[i,s]=l.exports.useState({action:a.action,location:a.location});return l.exports.useLayoutEffect(()=>a.listen(s),[a]),l.exports.createElement(b,{basename:t,children:o,location:i.location,navigationType:i.action,navigator:a})}const W=l.exports.forwardRef(function(t,o){let{onClick:r,relative:n,reloadDocument:a,replace:i,state:s,target:c,to:u,preventScrollReset:f}=t,p=O(t,j),v=k(u,{relative:n}),g=K(u,{replace:i,state:s,target:c,preventScrollReset:f,relative:n});function y(d){r&&r(d),d.defaultPrevented||g(d)}return l.exports.createElement("a",h({},p,{href:v,onClick:a?r:y,ref:o,target:c}))});function K(e,t){let{target:o,replace:r,state:n,preventScrollReset:a,relative:i}=t===void 0?{}:t,s=x(),c=R(),u=C(e,{relative:i});return l.exports.useCallback(f=>{if(H(f,o)){f.preventDefault();let p=r!==void 0?r:m(c)===m(u);s(e,{replace:p,state:n,preventScrollReset:a,relative:i})}},[c,s,u,r,n,o,e,a,i])}export{D as H,W as L};

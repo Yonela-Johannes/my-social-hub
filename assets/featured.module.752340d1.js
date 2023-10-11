@@ -1,0 +1,1 @@
+const t="_container_131oc_1",o="_title_131oc_5",n="_sub_131oc_12",_="_post_131oc_17",s="_imgContainer_131oc_24",c="_image_131oc_31",e="_textContainer_131oc_36",i="_postTitle_131oc_43",a="_postDesc_131oc_47",r="_button_131oc_53";var p={container:t,title:o,sub:n,post:_,imgContainer:s,image:c,textContainer:e,postTitle:i,postDesc:a,button:r};export{p as s};
