@@ -12,7 +12,7 @@ const PortfolioScreen = () => {
 
   return (
     <div className="absolute flex flex-col h-full items-center justify-center w-full backdrop-blur-[67px] z-40">
-      <div className="relative bg-bg_alt mt-[100px] pt-10 pb-4 p-5 w-full lg:w-[1000px] rounded-lg overflow-scroll">
+      <div className="relative bg-bg_alt mt-[100px] pt-10 pb-4 p-5 md:w-full lg:w-[1000px] rounded-lg overflow-scroll w-[320px]">
         <div
             onClick={() => dispatch(portfolioToggle())}
             className="fixed cursor-pointer"

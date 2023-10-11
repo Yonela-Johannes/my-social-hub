@@ -16,16 +16,14 @@ const Navbar = ({ pathname, homeScreen }) => {
 
   return (
     <div
-      className={`${
-        homeScreen && "bg-green"
-      } flex h-[60px] sm:h-[80px] border-b border-bg_light items-center justify-between px-4 sm:px-20  bg-bg_light`}
+      className={`flex h-[60px] sm:h-[80px] border-b border-bg_light items-center justify-between px-4 sm:px-20  bg-bg_light`}
     >
       <div
         className={`${
           homeScreen
             ? "bg-transparent"
-            : " p-2 text-center items-center bg-green justify-between rounded-full"
-        } flex`}
+            : " p-2 text-center items-center bg-green justify-between rounded-full hid"
+        } hidden md:flex`}
       >
         <div className="">
           <Link to="/">
@@ -62,14 +60,14 @@ const Navbar = ({ pathname, homeScreen }) => {
                   homeScreen ? "bg-transparent" : " p-2bg-bg_alt"
                 }  cursor-pointer`}
               >
-                <div className="flex items-center justify-center gap-4">
+                <div className="flex items-center  md:justify-center gap-4">
                   <button
                     className={`${
                       homeScreen ? "bg-transparent" : " p-2"
                     } border-none bg-transparent hover:bg-transparent`}
                     onClick={() => navigate("/")}
                   >
-                    <AiOutlineHome className="h-7 w-7 text-white md:hidden" />
+                    <AiOutlineHome className="h-5 w-5 md:h-7 md:w-7 text-white md:hidden" />
                     <p className="hidden md:block">Home</p>
                   </button>
                   <button
@@ -78,7 +76,7 @@ const Navbar = ({ pathname, homeScreen }) => {
                     } border-none bg-transparent hover:bg-transparent`}
                     onClick={() => navigate("/blogs")}
                   >
-                    <AiOutlineComment className="h-7 w-7 text-white md:hidden" />
+                    <AiOutlineComment className="h-5 w-5 md:h-7 md:w-7 text-white md:hidden" />
                     <p className="hidden md:block">Blogs</p>
                   </button>
                   <button
@@ -87,7 +85,7 @@ const Navbar = ({ pathname, homeScreen }) => {
                     } border-none bg-transparent hover:bg-transparent`}
                     onClick={() => navigate("/timeline")}
                   >
-                    <MdOutlineAccessTime className="h-7 w-7 text-white md:hidden" />
+                    <MdOutlineAccessTime className="h-5 w-5 md:h-7 md:w-7 text-white md:hidden" />
                     <p className="hidden md:block">Timeline</p>
                   </button>
                   <button
@@ -96,7 +94,7 @@ const Navbar = ({ pathname, homeScreen }) => {
                     } border-none bg-transparent hover:bg-transparent`}
                     onClick={() => navigate("/stories")}
                   >
-                    <AiOutlineVideoCamera className="h-7 w-7 text-white md:hidden" />
+                    <AiOutlineVideoCamera className="h-5 w-5 md:h-7 md:w-7 text-white md:hidden" />
                     <p className="hidden md:block">Stories</p>
                   </button>
                   <button
@@ -126,7 +124,7 @@ const Navbar = ({ pathname, homeScreen }) => {
                 } border-none bg-transparent hover:bg-transparent`}
                 onClick={() => navigate("/")}
                 >
-                <AiOutlineHome className="h-7 w-7 text-white md:hidden" />
+                <AiOutlineHome className="h-5 w-5 md:h-7 md:w-7 text-white md:hidden" />
                 <p className="hidden md:block">Home</p>
               </button>
               <button
@@ -135,7 +133,7 @@ const Navbar = ({ pathname, homeScreen }) => {
                 } border-none bg-transparent hover:bg-transparent`}
                 onClick={() => navigate("/blogs")}
               >
-                <AiOutlineComment className="h-7 w-7 text-white md:hidden " />
+                <AiOutlineComment className="h-5 w-5 md:h-7 md:w-7 text-white md:hidden " />
                 <p className="hidden md:block">Blogs</p>
               </button>
               <button
@@ -144,7 +142,7 @@ const Navbar = ({ pathname, homeScreen }) => {
                 } border-none bg-transparent hover:bg-transparent`}
                 onClick={() => navigate("/timeline")}
               >
-                <MdOutlineAccessTime className="h-7 w-7 text-white md:hidden " />
+                <MdOutlineAccessTime className="h-5 w-5 md:h-7 md:w-7 text-white md:hidden " />
                 <p className="hidden md:block">Timeline</p>
               </button>
               <button
@@ -153,7 +151,7 @@ const Navbar = ({ pathname, homeScreen }) => {
                 } border-none bg-transparent hover:bg-transparent`}
                 onClick={() => navigate("/stories")}
               >
-                <AiOutlineVideoCamera className="h-7 w-7 text-white md:hidden" />
+                <AiOutlineVideoCamera className="h-5 w-5 md:h-7 md:w-7 text-white md:hidden" />
                 <p className="hidden md:block">Stories</p>
               </button>
               <button

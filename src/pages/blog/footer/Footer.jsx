@@ -15,7 +15,7 @@ const Footer = () => {
           🚀Let's code the future, one line at a time, while illuminating our minds with wisdom. Dive into my thoughts, discoveries, and musings, and together, let's craft a brighter tomorrow. 🌈Stay curious, stay inspired, and always keep coding!
           </p>
         </div>
-        <div className='flex-1 flex gap-16 md:justify-end'>
+        <div className='flex-1 flex items-start gap-4 justify-between md:gap-16 md:justify-end'>
           <div className={styles.list}>
             <span className={styles.listTitle}>Links</span>
             <Link to="/">Homepage</Link>

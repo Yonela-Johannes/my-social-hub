@@ -67,7 +67,7 @@ function Service() {
     },
   ];
   return (
-    <div className="flex flex-col items-center justify-center w-[90%] lg:w-full pt-5 bg-bg_alt">
+    <div className="flex flex-col items-center justify-center lg:w-full pt-5 bg-bg_alt">
       <div className="grid grid-cols-1 items-center justify-center">
         <Marquee
           direction="left"

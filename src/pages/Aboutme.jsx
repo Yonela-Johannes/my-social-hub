@@ -25,7 +25,7 @@ function Aboutme() {
   ];
   return (
     <div className="absolute flex flex-col h-full items-center justify-center w-full backdrop-blur-[67px] z-40 overflow-hidden">
-      <div className="relative bg-bg_alt pt-10 pb-4 p-5 w-[390px] md:w-[1000px] rounded-lg overflow-y-scroll overflow-x-hidden sm:overflow-hidden">
+      <div className="relative bg-bg_alt pt-10 pb-4 p-5 w-[310px] md:w-[1000px] rounded-lg overflow-y-scroll overflow-x-hidden sm:overflow-hidden">
             <div
               onClick={() => dispatch(aboutModal())}
               className="absolute top-4 right-4 cursor-pointer"
@@ -44,7 +44,7 @@ function Aboutme() {
                   className="cursor-pointer md:p-5 flex flex-col md:w-[850px] bg-bg_light lg:mx-5 gap-2 rounded-2xl mb-10"
                 >
                   <div className="flex flex-col md:flex-row gap-4 p-2 w-[100%]">
-                    <div className="flex item-center round-xl md:w-[2000px] cursor-pointer h-[500px]">
+                    <div className="flex item-center round-xl md:w-[2000px] cursor-pointer h-[200px] md:h-[500px]">
                       <video
                         id={`video-${name}`}
                         autoPlay
@@ -57,10 +57,10 @@ function Aboutme() {
                       />
                     </div>
                     <div>
-                      <p className="w-full text-[14px] text-white font-bold py-2">{quote}</p>
-                      <p className="w-full text-[16px] text-white pb-2">{message}</p>
-                      <p className="w-full text-[16px] text-white pb-4">{messageBody}</p>
-                      <p className="w-full text-[16px] text-white pb-2">{end}</p>
+                      <p className="w-full text-[14px] md:text-[18px] text-white font-bold py-2">{quote}</p>
+                      <p className="w-full text-[14px] md:text-[16px] text-white pb-2">{message}</p>
+                      <p className="w-full text-[14px] md:text-[16px] text-white pb-4">{messageBody}</p>
+                      <p className="w-full text-[14px] md:text-[16px] text-white pb-2">{end}</p>
                     </div>
                   </div>
                 </div>

@@ -21,7 +21,7 @@ const Intro = () => {
             interaction. I’m not adding motion just to spruce things up, but doing it in ways that.
           </p>
         </div>
-          <img src={heroBanner} title='Yonela Johannes' alt="Yonela Johannes" className="w-[340px] h-[450px] rounded-xl cursor-pointer object-center object-cover" />
+          <img src={heroBanner} title='Yonela Johannes' alt="Yonela Johannes" className="w-[340px] h-[260px] md:h-[450px] rounded-xl cursor-pointer object-center object-cover" />
       </div>
   </section>
   )

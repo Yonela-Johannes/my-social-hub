@@ -60,15 +60,17 @@ const App = () => {
   const [activeNav, setActiveNav] = useState(false);
   return (
     <div className="flex-1 flex flex-col text-text bg-bg_cl align-center justify-center font-sans">
-      <Navbar
-        pathname={pathname}
-        setActiveNav={setActiveNav}
-        activeNav={activeNav}
-      />
+      <div className="absolute lg:static z-30 bg-red w-full bottom-0 left-0 right-0">
+        <Navbar
+          pathname={pathname}
+          setActiveNav={setActiveNav}
+          activeNav={activeNav}
+        />
+      </div>
       <div className={`sm:w-full self-center flex w-full`}>
         <div
           className={`w-full h-[calc(100vh)] ${
-            pathname == "/k," || pathname == "/signin" || pathname == "/signup"
+            pathname == "/signin" || pathname == "/signup"
               ? "md:overflow-hidden"
               : "overflow-y-scroll"
           } flex xl:flex-row flex-reverse`}

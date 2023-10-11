@@ -41,7 +41,7 @@ const LandingStories = () => {
                       <div className="recent-post-card">
 
                         <div className="relative">
-                        <figure className="card-banner img-holder w-[270px] h-[280px]">
+                        <figure className="card-banner img-holder w-[230px] h-[280px]">
                           <video
                             muted
                             src={story?.story}

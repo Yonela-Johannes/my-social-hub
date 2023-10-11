@@ -19,9 +19,10 @@ const Landing = () => {
 
   return (
     <div className="flex flex-col items-center justify-center sm:h-[70vh] lg:min-h-[80vh] w-full bg-bg_alt text-white">
-      <div className="items-center text-lighter flex-wrap mt-10">
+      <div className="items-center text-lighter flex-wrap mt-10 px-4">
           <div className="flex gap-2 items-center flex-wrap lg:flex-nowrap">
           <p className='rounded-md border border-bg_light py-1 px-2'>Entrepreneur</p>
+          <p className='rounded-md border border-bg_light py-1 px-2'>Software engineer</p>
             <p className='rounded-md border border-bg_light py-1 px-2'>Full Stack Developer</p>
             <p className='rounded-md border border-bg_light py-1 px-2'>Freelancer</p>
             <p className='rounded-md border border-bg_light py-1 px-2'>Blogger</p>
