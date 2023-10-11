@@ -7,7 +7,6 @@ import parse from "html-react-parser";
 import moment from "moment/moment";
 import { AiFillHeart, AiOutlineComment, AiOutlineEye, AiOutlineHeart } from "react-icons/ai";
 import toast, { Toaster } from "react-hot-toast";
-import { useLocation } from "react-router-dom";
 import { getPosts, lovePost } from "../../app/features/post/postsSlice";
 import PostDetailsComments from "./PostDetailsComments";
 
@@ -98,13 +97,6 @@ const PostDetails = () => {
             </div>
             <PostDetailsComments postId={post?._id} userId={_id} />
           </article>
-          <div>
-            <div className="mt-7">
-              <h2 className="font-roboto font-medium text-dark-hard mb-4 md:text-xl">
-                Share on:
-              </h2>
-            </div>
-          </div>
         </section>
       </div>
       )}

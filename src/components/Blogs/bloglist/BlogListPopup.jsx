@@ -1,5 +1,3 @@
-import { MdClose } from 'react-icons/md'
-import { toggleBlogModal } from "../../../app/features/auth/authSlice";
 import CreateBlog from "../../../pages/blog/CreateBlog";
 
 const BlogListPopup = ({close}) => {

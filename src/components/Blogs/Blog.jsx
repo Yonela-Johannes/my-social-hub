@@ -20,7 +20,7 @@ const Blog = ({ blog }) => {
   return (
     <div
       onClick={blogHandler}
-      className="relative flex flex-col items-center text-center group hover:scale-105 bg-bg_alt w-[340px] h-[380px] md:w-[380px] rounded-xl cursor-pointer py-4 my-[20px] hover:bg-bg_light duration-300"
+      className="relative flex flex-col items-center text-center group hover:scale-105 bg-bg_alt w-[300px] h-[380px] md:w-[380px] rounded-xl cursor-pointer py-4 my-[20px] hover:bg-bg_light duration-300"
     >
       <div className="absolute top-0 right-1 flex  gap-2 justify-between items-center text-center text-base text-bg_cl py-4">
         <div className="flex gap-1 text-center items-center justify-center">
@@ -34,7 +34,7 @@ const Blog = ({ blog }) => {
         <img
           src={blog?.image}
           alt={blog?.name}
-          className="h-[200px] w-[380px] object-cover object-center group-hover:rounded-lg transition-all ease self-center"
+          className="h-[200px] w-[280px] md:w-[380px] object-cover object-center group-hover:rounded-lg transition-all ease self-center"
         />
         <div className="">
         <div className="flex items-center mt-2 ml-2">
@@ -48,20 +48,13 @@ const Blog = ({ blog }) => {
             <div className="flex flex-col justify-start px-2 py-1 rounded-md bg-bg_alt items-start text-start gap-0">
               <p className="m-0 p-0 text-[14px] text-facebook">
                 {blog?.user?.given_name} {blog?.user?.family_name}
+            <p className="text-[11px]">{moment(blog?.createdAt).fromNow()}</p>
               </p>
             </div>
           </div>
         </div>
           <div className="flex text-start rounded-2xl justify-between p-2 px-4 text-base">
             <p className="text-[16px]">{blog?.title}</p>
-            <p className="">{moment(blog?.createdAt).fromNow()}</p>
-          </div>
-          <div className="flex px-4 gap-4">
-            <div className="pb-6 text-start text-[14px]">
-              <p className="flex-wrap mb-2 m-0">
-                {parse(blog?.message?.slice(0, 30) + "...")}
-              </p>
-            </div>
           </div>
         </div>
       </div>

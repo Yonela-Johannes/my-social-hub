@@ -3,7 +3,6 @@ import Layout from "../components/Layout/Layout";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { MdAdd } from "react-icons/md";
-import Featured from "./blog/featured/Featured";
 import Footer from "./blog/footer/Footer";
 import VideoCard from "../components/video/VideoCard";
 import { getStories } from "../app/features/videos/videoSlice";

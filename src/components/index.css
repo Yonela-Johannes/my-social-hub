@@ -543,6 +543,12 @@ body {
 
 }
 
+.feature-list li:nth-child(1) { width: 100%; }
+.feature-list li:nth-child(2) { width: 100%; }
+.feature-list li:nth-child(3) { width: 100%; }
+.feature-list li:nth-child(4) { width: 100%; }
+.feature-list li:nth-child(5) { width: 100%; }
+
 @media (min-width: 768px) {
 
   :root {
