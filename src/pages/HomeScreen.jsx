@@ -17,7 +17,9 @@ const HomeScreen = () => {
       <Feature />
       <LandingPosts />
       <LandingStories />
-      <LandingFooter />
+      <div className="w-full flex items-center justify-center md:w-[1200px]">
+        <LandingFooter />
+      </div>
       <div className="md:px-[100px] mb-[100px] md:mb-[120px]">
         <MainFooter />
       </div>
