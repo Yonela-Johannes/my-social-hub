@@ -25,7 +25,7 @@ const BlogDetails = () => {
 
   React.useEffect(() => {
     dispatch(getBlogs());
-  }, [blogs]);
+  }, []);
 
   React.useEffect(() => {
     setLoading(true)
@@ -36,7 +36,7 @@ const BlogDetails = () => {
       setLoading(false)
     }
     setLoading(false)
-  }, [blogs, blog]);
+  }, [blogs]);
 
   const handleLike = async () => {
     if (!_id) return toast("Sorry you have to sign in to like blog post");

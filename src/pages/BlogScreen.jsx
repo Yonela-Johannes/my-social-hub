@@ -19,7 +19,7 @@ const BlogScreen = () => {
 
   useEffect(() => {
     dispatch(getBlogs())
-  }, [pathname, blogs]);
+  }, [pathname]);
 
   return (
     <Layout>

@@ -40,15 +40,13 @@ const Navbar = ({ pathname, homeScreen }) => {
           <>
             {pathname == "/signup" && (
               <div className="flex items-center gap-4">
-                <div className="">
                   <button
-                    className={`${homeScreen ? "bg-transparent" : " p-2"} `}
+                    className={`${homeScreen ? "bg-transparent" : " p-2"} text-white`}
                     onClick={() => navigate("/signin")}
                   >
-                    <AiOutlineLogin />
-                    Sign in
+                    <AiOutlineLogin   className="h-5 w-5 md:h-7 md:w-7 text-white md:hidden" />
+                    <p className="hidden md:block">Sign in</p>
                   </button>
-                </div>
               </div>
             )}
           </>
@@ -155,11 +153,11 @@ const Navbar = ({ pathname, homeScreen }) => {
                 <p className="hidden md:block">Stories</p>
               </button>
               <button
-                className={`${homeScreen ? "bg-transparent" : " p-2"} `}
+                className={`${homeScreen ? "bg-transparent" : " p-1 rounded-full"} text-white`}
                 onClick={() => navigate("/signin")}
               >
-                <AiOutlineLogin className="h-4 w-4 p-2 bg-primary rounded-full" />
-                Sign in
+                <AiOutlineLogin  className="h-5 w-5 md:h-7 md:w-7 text-white md:hidden"  />
+                <p className="hidden md:block">Sign in</p>
               </button>
             </div>
           </div>
