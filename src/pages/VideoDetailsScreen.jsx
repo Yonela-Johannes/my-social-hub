@@ -34,7 +34,7 @@ const VideoDetailsScreen = () => {
 
   useEffect(() => {
     dispatch(getStories());
-  }, [story]);
+  }, []);
 
   useEffect(() => {
     setLoading(true);

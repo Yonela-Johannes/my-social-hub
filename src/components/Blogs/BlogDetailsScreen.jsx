@@ -29,7 +29,7 @@ const BlogDetailsScreen = () => {
 
   React.useEffect(() => {
     dispatch(getBlogs());
-  }, [blogs]);
+  }, []);
 
   React.useEffect(() => {
     setLoading(true);

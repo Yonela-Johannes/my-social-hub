@@ -17,7 +17,7 @@ const PostScreen = () => {
 
   useEffect(() => {
     dispatch(getPosts())
-  }, [pathname, posts]);
+  }, [pathname]);
 
   return (
     <Layout>
