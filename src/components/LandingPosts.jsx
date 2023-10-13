@@ -40,7 +40,7 @@ const LandingPosts = () => {
             <ul className="grid-list">
               {recentPosts?.length ? (
                 recentPosts?.map((post) => (
-                  <li>
+                  <li key={post?._id}>
                     <div className="recent-post-card">
 
                       <div onClick={() => navigate(`/details/${post?._id}`)} className="relative">

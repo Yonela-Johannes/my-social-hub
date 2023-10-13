@@ -37,7 +37,7 @@ const LandingStories = () => {
               <ul className="grid-list">
                 {recentStories?.length ? (
                   recentStories?.map((story) => (
-                    <li>
+                    <li key={story?._id}>
                       <div className="recent-post-card">
 
                         <div className="relative">
