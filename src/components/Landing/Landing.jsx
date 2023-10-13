@@ -1,11 +1,7 @@
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-<<<<<<< HEAD
-import landing from '../../assets/yonela.jpg';
-=======
 import landing from '../../assets/ART.png';
->>>>>>> db2174b1a4ce2f15892f4d8d87c033d2d021989f
 import { useDispatch } from 'react-redux';
 import { aboutModal, blogModal, contactModal, portfolioToggle, reviewsModal, teamModal, toggleBookSessionModal, workModal } from '../../app/features/auth/authSlice';
 import Service from '../Service/Service';
@@ -57,13 +53,8 @@ const Landing = () => {
           </div>
           <Service />
         </div>
-<<<<<<< HEAD
-        <div className="hidden md:block absolute w-[500px] z-20 right-0 bottom-0">
-          <img className="md:object-cover rounded-2xl object-contain w-[300px] h-[200px] md:h-[600px] md:w-[600px]" src={landing} alt="landing" />
-=======
         <div className="md:block md:absolute md:w-[500px] z-20 right-0 bottom-0">
           <img className="rounded-2xl object-cover w-[200px] h-[300px] md:w-[500px] md:h-[600px]" src={landing} alt="landing" />
->>>>>>> db2174b1a4ce2f15892f4d8d87c033d2d021989f
         </div>
       </div>
     </div>

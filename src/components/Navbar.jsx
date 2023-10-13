@@ -1,10 +1,6 @@
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-<<<<<<< HEAD
-import Alpha from "../assets/AlphaWhite.png";
-=======
 import Alpha from "../assets/LOGO.png";
->>>>>>> db2174b1a4ce2f15892f4d8d87c033d2d021989f
 import { useSelector } from "react-redux";
 import { AiOutlineComment, AiOutlineHome, AiOutlineLogin, AiOutlineVideoCamera } from "react-icons/ai";
 import { MdOutlineAccessTime } from "react-icons/md";
@@ -34,11 +30,7 @@ const Navbar = ({ pathname, homeScreen }) => {
             <img
               src={Alpha}
               alt="logo"
-<<<<<<< HEAD
-              className="w-4 h-4 sm:h-6 sm:w-6 rotate-180"
-=======
               className="w-4 h-4 sm:h-6 sm:w-6"
->>>>>>> db2174b1a4ce2f15892f4d8d87c033d2d021989f
             />
           </Link>
         </div>
