@@ -16,32 +16,26 @@ const Navbar = ({ pathname, homeScreen }) => {
 
   return (
     <div
-      className={`flex h-[60px] sm:h-[80px] border-b border-bg_light items-center justify-between px-4 sm:px-20  bg-bg_light`}
+      className={`flex h-[60px] sm:h-[80px] border-b border-bg_light items-center justify-between pt-4 sm:px-20  bg-bg_light`}
     >
       <div
-        className={`${
-          homeScreen
-            ? "bg-transparent"
-            : " p-2 text-center items-center bg-green justify-between rounded-full hid"
-        } hidden md:flex`}
+        className={`text-center items-center bg-green justify-between rounded-full hid hidden md:flex`}
       >
-        <div className="">
           <Link to="/">
             <img
               src={Alpha}
               alt="logo"
-              className="w-4 h-4 sm:h-6 sm:w-6"
+              className="w-5 h-5 sm:h-7 sm:w-7"
             />
           </Link>
-        </div>
       </div>
       <div>
         {!email ? (
-          <>
+          <div className="bg-red">
             {pathname == "/signup" && (
               <div className="flex items-center gap-4">
                   <button
-                    className={`${homeScreen ? "bg-transparent" : " p-2"} text-white`}
+                    className={`${homeScreen ? "bg-transparent" : "p-2"} text-white`}
                     onClick={() => navigate("/signin")}
                   >
                     <AiOutlineLogin   className="h-5 w-5 md:h-7 md:w-7 text-white md:hidden" />
@@ -49,9 +43,9 @@ const Navbar = ({ pathname, homeScreen }) => {
                   </button>
               </div>
             )}
-          </>
+          </div>
         ) : (
-          <div className="relative">
+          <div className="relative bg-blue">
             <div className="flex items-center gap-4">
               <div
                 className={`rounded-full flex items-center gap-2 text-base ${
@@ -61,7 +55,7 @@ const Navbar = ({ pathname, homeScreen }) => {
                 <div className="flex items-center  md:justify-center gap-4">
                   <button
                     className={`${
-                      homeScreen ? "bg-transparent" : " p-2"
+                      homeScreen ? "bg-transparent" : "p-2"
                     } border-none bg-transparent hover:bg-transparent`}
                     onClick={() => navigate("/")}
                   >
@@ -70,7 +64,7 @@ const Navbar = ({ pathname, homeScreen }) => {
                   </button>
                   <button
                     className={`${
-                      homeScreen ? "bg-transparent" : " p-2"
+                      homeScreen ? "bg-transparent" : "p-2"
                     } border-none bg-transparent hover:bg-transparent`}
                     onClick={() => navigate("/blogs")}
                   >
@@ -79,7 +73,7 @@ const Navbar = ({ pathname, homeScreen }) => {
                   </button>
                   <button
                     className={`${
-                      homeScreen ? "bg-transparent" : " p-2"
+                      homeScreen ? "bg-transparent" : "p-2"
                     } border-none bg-transparent hover:bg-transparent`}
                     onClick={() => navigate("/timeline")}
                   >
@@ -88,7 +82,7 @@ const Navbar = ({ pathname, homeScreen }) => {
                   </button>
                   <button
                     className={`${
-                      homeScreen ? "bg-transparent" : " p-2"
+                      homeScreen ? "bg-transparent" : "p-2"
                     } border-none bg-transparent hover:bg-transparent`}
                     onClick={() => navigate("/stories")}
                   >
@@ -118,7 +112,7 @@ const Navbar = ({ pathname, homeScreen }) => {
             <div className="flex items-center justify-center gap-4">
               <button
                 className={`${
-                  homeScreen ? "bg-transparent" : " p-2"
+                  homeScreen ? "bg-transparent" : "p-2"
                 } border-none bg-transparent hover:bg-transparent`}
                 onClick={() => navigate("/")}
                 >
@@ -127,7 +121,7 @@ const Navbar = ({ pathname, homeScreen }) => {
               </button>
               <button
                 className={`${
-                  homeScreen ? "bg-transparent" : " p-2"
+                  homeScreen ? "bg-transparent" : "p-2"
                 } border-none bg-transparent hover:bg-transparent`}
                 onClick={() => navigate("/blogs")}
               >
@@ -136,7 +130,7 @@ const Navbar = ({ pathname, homeScreen }) => {
               </button>
               <button
                 className={`${
-                  homeScreen ? "bg-transparent" : " p-2"
+                  homeScreen ? "bg-transparent" : "p-2"
                 } border-none bg-transparent hover:bg-transparent`}
                 onClick={() => navigate("/timeline")}
               >
@@ -145,7 +139,7 @@ const Navbar = ({ pathname, homeScreen }) => {
               </button>
               <button
                 className={`${
-                  homeScreen ? "bg-transparent" : " p-2"
+                  homeScreen ? "bg-transparent" : "p-2"
                 } border-none bg-transparent hover:bg-transparent`}
                 onClick={() => navigate("/stories")}
               >

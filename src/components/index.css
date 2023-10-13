@@ -88,7 +88,7 @@ body {
   color: var(--text-shadow-blue);
   font-family: var(--fontFamily-noto_sans);
   line-height: var(--lineHeight-4);
-  overflow-y: overlay;
+  overflow-y: hidden;
 }
 
 ::-webkit-scrollbar { width: 10px; }
