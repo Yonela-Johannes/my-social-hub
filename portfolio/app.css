@@ -1,0 +1,316 @@
+.app{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: 35px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  background-color: var(--header-background);
+}
+
+.menu.icon{
+  color: var(--title-bg);
+}
+.navListOne{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding : 5px;
+}
+.listItemsOne{
+    width: 60px;
+    font-size: 30px;
+}
+
+.about_more_button{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.about_button{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.icon{
+  font-size: 35px;
+  color: var(--p-cl-alt);
+  transition: .2s ease-in-out;
+  padding: 2px;
+  transition: .2s ease;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.icon:hover{
+    color: var( --m-m-cl);
+    background-color: var(--main-hover);
+}
+
+.logo{
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+/* BUTTONS */
+.button{
+    display: inline-block;
+    color: var(--main-main-color);
+    background-color: var(--main-hover);
+    padding: .8rem;
+    border-radius: 5rem;
+    font-weight: var(--font-medium);
+}
+
+.buttonIcon{
+    margin-left: var(--mb-0-5);
+    font-size: 1.1rem;
+    transition: .3s;
+}
+
+/* HOME BUTTONS SECTION */
+.home_buttons{
+    display: contents;
+}
+.home_buttons_content {
+    display: flex;
+    background-color: #686363;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+.button-float{
+    border-bottom: .2px solid rgb(176, 176, 176);
+    cursor: pointer;
+}
+
+.homeButtonsData{
+    padding: 20px;
+}
+.homeButtonsData:hover{
+    background-color: #65D58C;
+}
+
+.detailsButton p{
+    color: white;
+    padding: 5px 15px;
+}
+.buttonActive {
+    border-right: .2px solid rgb(88, 88, 88);
+    border-left: .2px solid rgb(95, 95, 95);
+    background-color: rgb(63, 62, 62);
+}
+.middleButton{
+    background-color: pink;
+}
+/* DETAILS */
+    .details {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        background-color: #686363;
+        padding: 5px 0;
+        margin-top: 20px;
+    }
+
+.detailsTitle {
+    color: rgb(76, 76, 76);
+}
+.detailsContent {
+    text-align: center;
+    align-items: center;
+}
+.detailsContainer{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    height: 100%;
+    background-color: rgb(235, 197, 197);
+    padding: 0 20px;
+}
+.detailsContainerTwo{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    /* justify-content: center; */
+    background-color: rgb(225, 225, 225);
+    padding: 0 20px;
+}
+.detailsData {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.detailsDescriptionOne {
+    border-radius: 10px;
+    padding: 10px;
+    border: .2px solid rgb(171, 171, 171);
+    margin: 5px 10px;
+}
+.detailsDescription {
+    border-radius: 10px;
+    padding: 10px;
+    border: .2px solid rgb(108, 108, 108);
+    margin: 5px 10px;
+}
+
+.detailsUserData {
+    display: flex;
+    align-items: center;
+}
+.detailsInfo p {
+    max-width: 290px;
+}
+/* NEXT BUTTON */
+
+/* Projects button */
+
+.projects {
+    max-width: 150px;
+    margin: 10px auto;
+    border: .2px solid gray;
+}
+.home_buttons {
+    display: none;
+}
+
+.title{
+    margin: 0 auto;
+    font-size: 20px;
+    color: var(--header-background);
+    text-align: start;
+    font-weight: bold;
+}
+
+
+/* FOR MEDIUM DEVICES */
+
+@media screen and (min-width: 768px){
+  .menu{
+    display: none;
+  }
+    .mainContainer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-height: 100vh;
+    }
+    .main {
+        flex-grow: 1;
+    }
+
+    .container{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    body{
+        margin: 0;
+    }
+    .button--flex{
+        align-self: flex-end;
+    }
+
+    /* Details */
+    .details {
+        display: flex;
+        /* align-items: center; */
+        /* justify-content: center; */
+        flex-direction: row;
+        position: relative;
+        /* background-color: #686363; */
+        background-color: transparent;
+        padding: 5px 0;
+    }
+    .detailsData {
+        flex-direction: row;
+        text-align: center;
+        align-items: flex-start;
+        justify-content: center;
+        padding-bottom: 15px;
+    }
+    .detailsInfo{
+        display: flex;
+        text-align: left;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-left: 10px;
+    }
+    .detailsContainer{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        width: 50vw;
+        height: 100%;
+        background-color: rgb(235, 197, 197);
+        padding: 0 20px;
+    }
+    .title{
+        font-size: 25px;
+        color: var(--header-background);
+        text-align: start;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 25px;
+        width: 100%;
+        margin: 20px 0;
+    }
+    .name{
+        color: var(--body-bg);
+        font-weight: bold;
+    }
+    .detailsContainerTwo{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        /* justify-content: center; */
+        background-color: rgb(225, 225, 225);
+        padding: 0 20px;
+    }
+    .detailsData {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .imageSliderContent{
+        /* display: flex; */
+        min-width: 100%;
+    }
+    .imageDliderDetails{
+        display: flex;
+        min-width: 100%;
+    }
+    .siteImage {
+        width: 180px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+    .middleButton{
+        background: pink;
+    }
+    .middleGrayButton{
+        background: gray;
+    }
+}

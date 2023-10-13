@@ -5,8 +5,8 @@ import { useParams } from 'react-router-dom';
 import { getBlogs } from '../../app/features/blogs/blogsSlice';
 import { MdClose } from "react-icons/md";
 import SocialShareButtons from './SocialShareButtons';
-import CommentsContainer from '../comments/CommentsContainer';
 import { blogDetailsToggle } from "../../app/features/auth/authSlice";
+import Comments from '../../pages/blog/comments/Comments';
 
 
 const BlogDetails = () => {
@@ -33,7 +33,7 @@ const BlogDetails = () => {
   return (
     <div className="absolute flex flex-col h-full items-center justify-center w-full backdrop-blur-[67px] z-40">
     {/* <BlogSkeleton /> */}
-          <div className="relative bg-bg_alt pt-10 pb-4 p-5 w-full lg:w-[90%] rounded-lg">
+          <div className="relative bg-bg_alt pt-10 pb-4 p-5 w-full lg:w-[1000px] rounded-lg">
             <div
                 onClick={() => dispatch(blogDetailsToggle())}
                 className="absolute top-4 right-4 cursor-pointer"
@@ -51,11 +51,7 @@ const BlogDetails = () => {
                   <h1 className="text-xl font-medium font-roboto mt-4 text-dark-hard md:text-[26px]">
                     {blog?.title}
                   </h1>
-                  <CommentsContainer
-                    comments={blog?.comments}
-                    className="mt-10"
-                    userId={_id}
-                  />
+                <Comments />
                 </article>
                 <div>
                   <div className="mt-7">

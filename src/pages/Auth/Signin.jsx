@@ -6,15 +6,15 @@ import Layout from '../../components/Layout/Layout';
 import { signIn } from '../../app/features/auth/authSlice';
 
 const Signin = () => {
-  const { given_name, email, picture, message } = useSelector(state => state.auth)
+  const { given_name, email, picture } = useSelector(state => state.auth)
   const dispatch = useDispatch();
   const navigate = useNavigate()
 
-  // useEffect(() => {
-  //   if(given_name && email && picture){
-  //     navigate('/')
-  //   }
-  // }, [])
+  useEffect(() => {
+    if(given_name && email && picture){
+      navigate('/blogs')
+    }
+  }, [given_name, email, picture])
 
   const handleLoginSuccess = async (credentials) => {
     dispatch(signIn(credentials.credential))

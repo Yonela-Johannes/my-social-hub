@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { baseUrl } from "../../../constants/base_urls";
 
-const createContact = async (data) => {
-  const response = await axios.post(`${baseUrl}contact`, data);
+export const createContact = async (data) => {
+  const response = await axios.post(`${baseUrl}contacts`, data);
   return response.data
 }
 

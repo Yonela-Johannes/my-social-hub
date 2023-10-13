@@ -36,29 +36,23 @@ const initialState = {
   message: "",
   status: "",
   menuState: false,
-  showAdmin: false,
-  serverPopup: false,
-  postModal: false,
   blogModal: false,
   workModal: false,
-  devModal: false,
-  videoModal: false,
-  bookSessionModal: false,
   emailUsModal: false,
-  aboutUsModal: false,
+  aboutMeModal: false,
   ourWorkModal: false,
   ourTeamModal: false,
   contactUsModal: false,
   ourReviews: false,
   blog: false,
   blogDetails: false,
-  selectedBlog: ''
+  selectedBlog: '',
+  portfolioModal: false,
 };
 
 export const signIn = createAsyncThunk("user/getUser", async (user) => {
   try {
     const response = await axios.post(`${baseUrl}user/login`, {oauthCode: user})
-    console.log(response.data)
     return response.data
   } catch (error) {
     throw err
@@ -103,7 +97,7 @@ const userSlice = createSlice({
       state.emailUsModal = !state.emailUsModal
     },
     aboutModal(state) {
-      state.aboutUsModal = !state.aboutUsModal
+      state.aboutMeModal = !state.aboutMeModal
     },
     workModal(state) {
       state.ourWorkModal = !state.ourWorkModal
@@ -123,6 +117,9 @@ const userSlice = createSlice({
     blogDetailsToggle(state, payload) {
       state.selectedBlog = payload.payload
       state.blogDetails = !state.blogDetails
+    },
+    portfolioToggle(state) {
+      state.portfolioModal = !state.portfolioModal
     },
   },
 
@@ -173,5 +170,6 @@ export const {
   contactModal,
   blogModal,
   blogDetailsToggle,
+  portfolioToggle
 } = userSlice.actions;
 export default userSlice.reducer;

@@ -1,0 +1,163 @@
+.about{
+  text-align: center;
+}
+.about-me{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+}
+.app__about {
+  flex: 1;
+  width: 100%;
+  flex-direction: column;
+}
+
+.about-title{
+  color: var(--body-bg);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.about-desc{
+  font-size: 14px;
+  width: 200px;
+}
+.app__profiles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.app__profile-item {
+  width: 190px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 2rem;
+}
+.app__profile-item img {
+  width: 100%;
+  height: 120px;
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+h2.head-text{
+  margin: auto;
+  font-size: 18px;
+  width: 260px;
+  text-align: start;
+  color: white;
+}
+
+h2.head-text span{
+  color: white;
+}
+
+
+@media screen and (min-width: 2000px) {
+  .app__profile-item {
+    width: 370px;
+    margin: 2rem 4rem;
+  }
+  .app__profile-item img {
+    height: 320px;
+  }
+}
+
+.about-me{
+  text-align: center;
+}
+
+.about-me-container{
+  padding-top: 30px;
+  margin: auto;
+}
+
+.about-me-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.about-me-img{
+  width: 260px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.about-me-des-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+}
+
+.about-me-desc-wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.about-me-name{
+  font-size: 20px;
+  font-weight: bold;
+  margin: 5px 0;
+  text-align: start;
+}
+.about-me-sub{
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: start;
+}
+.about-me-text{
+  width: 260px;
+  padding: 10px 0;
+  color: white;
+  text-align: start;
+}
+.about-img{
+  width: 260px;
+  height: 160px;
+  object-fit: contain;
+}
+
+@media screen and (min-width: 765px){
+  .about-me-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .about-me-text{
+    width: 400px;
+    padding: 10px;
+    color: white;
+  }
+  .about-me-img{
+    width: 400px;
+    height: 400px;
+    object-fit: contain;
+  }
+  .about-me-name{
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .about-me-sub{
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .about-me-text{
+    width: 260px;
+    padding: 10px;
+    color: white
+  }
+}
