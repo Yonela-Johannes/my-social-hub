@@ -4,6 +4,7 @@ import { MdClose } from "react-icons/md";
 import { portfolioToggle } from "../app/features/auth/authSlice";
 import App from '../../portfolio/App';
 import Navbar from '../../portfolio/components/Navbar';
+import { AiOutlineArrowRight } from 'react-icons/ai';
 
 
 const PortfolioScreen = () => {

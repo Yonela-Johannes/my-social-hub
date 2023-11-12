@@ -92,7 +92,7 @@ const VideoCard = ({
           </div>
         </div>
       </div>
-      <div className="flex gap-4 relative">
+      <div className="flex items-center justify-center gap-4 relative">
         <div
           onMouseEnter={() => setIsHover(true)}
           onMouseLeave={() => setIsHover(false)}
@@ -104,12 +104,12 @@ const VideoCard = ({
               muted
               ref={videoRef}
               src={story}
-              className="lg:w-[600px] h-[300px] md:h-[400px] object-cover lg:h-[528px] w-[200px] rounded-2xl cursor-pointer"
+              className="lg:w-[600px] h-[300px] md:h-[400px] object-cover lg:h-[528px] w-full rounded-2xl cursor-pointer"
             ></video>
           </div>
-          <div className="absolute bottom-2   py-2 px-2">
+          <div className="w-full h-full bottom-2 py-2 px-2">
             <div className="flex items-center text-base text-white p-1 rounded-b-md left-2 gap-2">
-              <div className="flex gap-4">
+              <div className="flex w-full h-full items-center justify-center lg:flex gap-4">
                 <div
                   onClick={handleLike}
                   className={`${
@@ -146,18 +146,18 @@ const VideoCard = ({
           </div>
 
           {/* {isHover && ( */}
-            <div className="absolute bottom-6 cursor-pointer flex gap-4 right-2 w-[100px]">
+            <div className="absolute bottom-20 left-2 lg:bottom-4 cursor-pointer flex flex-col lg:flex-row gap-4 lg:right-2 w-[100px]">
               {playing ? (
-                <div onClick={onVideoPress} className="cursor-pointer text-white rounded-full p-2 bg-green duration-300 hover:text-white">
+                <div onClick={onVideoPress} className="cursor-pointer text-white rounded-full w-min p-2 bg-green duration-300 hover:text-white">
                   <BsFillPauseFill size={18}/>
                 </div>
               ) : (
-                <div onClick={onVideoPress} className="cursor-pointer text-white rounded-full p-2 bg-green duration-300 hover:text-white">
+                <div onClick={onVideoPress} className="cursor-pointer text-white rounded-full w-min p-2 bg-green duration-300 hover:text-white">
                   <BsFillPlayFill size={18}/>
                 </div>
               )}
               {isVideoMuted ? (
-                <div onClick={() => setIsVideoMuted(false)} className="cursor-pointer text-white rounded-full p-2 bg-green duration-300 hover:text-white">
+                <div onClick={() => setIsVideoMuted(false)} className="cursor-pointer text-white rounded-full w-min p-2 bg-green duration-300 hover:text-white">
                   <HiVolumeOff size={18}/>
                 </div>
               ) : (

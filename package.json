@@ -83,7 +83,7 @@
     "react-top-loading-bar": "^2.3.1",
     "redux": "^4.0.5",
     "redux-persist": "^6.0.0",
-    "redux-thunk": "^2.3.0",
+    "redux-thunk": "^2.4.2",
     "socket.io-client": "^4.7.2",
     "sound": "^3.1.0",
     "suneditor": "^2.44.12",
