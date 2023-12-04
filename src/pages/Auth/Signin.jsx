@@ -12,7 +12,7 @@ const Signin = () => {
 
   useEffect(() => {
     if(given_name && email && picture){
-      navigate('/blogs')
+      navigate('/')
     }
   }, [given_name, email, picture])
 

@@ -54,7 +54,7 @@ const initialState = {
 
 export const signIn = createAsyncThunk("user/getUser", async (user) => {
   try {
-    const response = await axios.post(`${baseUrl}user/login`, {oauthCode: user})
+    const response = await axios.post(`${baseUrl}/user/login`, {oauthCode: user})
     return response.data
   } catch (error) {
     throw err

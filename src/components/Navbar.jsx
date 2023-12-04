@@ -19,14 +19,12 @@ const Navbar = ({ pathname, homeScreen }) => {
       className={`flex h-[60px] sm:h-[80px] border-b border-bg_light items-center justify-between pt-4 sm:px-20  bg-bg_light`}
     >
       <div
-        className={`text-center items-center bg-green justify-between rounded-full hid hidden md:flex`}
+        className={`p-3 text-[18px] gap-2 text-center items-center bg-green justify-between rounded-full hidden md:flex`}
       >
           <Link to="/">
-            <img
-              src={Alpha}
-              alt="logo"
-              className="w-5 h-5 sm:h-7 sm:w-7"
-            />
+            <p>
+              Yonela Johannes
+            </p>
           </Link>
       </div>
       <div>
@@ -45,7 +43,7 @@ const Navbar = ({ pathname, homeScreen }) => {
             )}
           </div>
         ) : (
-          <div className="relative bg-blue">
+          <div className="relative">
             <div className="flex items-center gap-4">
               <div
                 className={`rounded-full flex items-center gap-2 text-base ${
