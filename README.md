@@ -1,4 +1,4 @@
-# My Social Blog/Hub - Fullstack + Dashboard & CMS, React, Tailwind, MongoDB
+# My Social Blog/Hub - Fullstack
 
 ### Frontend: Built with the Vite App Router, & Tailwind
 ### Backend: Built with the Nodejs, Express, MongoDB, Mongoose
